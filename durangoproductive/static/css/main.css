@@ -223,3 +223,150 @@ dl {
     margin-top: 0.75em; }
   dl dd {
     margin: 0; }
+
+body {
+  background-color: #fdf6ee; }
+  body section.content {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%;
+    padding-top: 250px; }
+    body section.content:last-child {
+      margin-right: 0; }
+    body section.content .lead {
+      font-size: 20px; }
+  body footer {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%; }
+    body footer:last-child {
+      margin-right: 0; }
+    body footer ul li {
+      text-transform: uppercase;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 12px; }
+      body footer ul li a {
+        color: #a1937e; }
+    body footer ul .footer_contact {
+      background: url("../images/cropped_hex_tn.png") no-repeat 100px 0px;
+      background-size: 126px 89px;
+      padding-top: 85px; }
+      body footer ul .footer_contact ul li {
+        clear: left; }
+        body footer ul .footer_contact ul li .contact_method {
+          text-transform: uppercase;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 700;
+          font-size: 12px; }
+        body footer ul .footer_contact ul li .contact_info {
+          display: block;
+          font-family: "IM Fell DW Pica", serif;
+          font-style: italic;
+          font-size: 10px;
+          color: #a1937e;
+          margin-top: -10px;
+          text-transform: lowercase;
+          font-weight: 400; }
+        body footer ul .footer_contact ul li .copyright_label {
+          display: block;
+          font-family: "IM Fell DW Pica", serif;
+          font-style: italic;
+          font-size: 10px;
+          text-transform: lowercase;
+          font-weight: 400; }
+        body footer ul .footer_contact ul li .copyright_name {
+          text-transform: uppercase;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 700;
+          font-size: 12px;
+          display: block;
+          width: 150px;
+          margin-top: -10px; }
+
+#home {
+  background-image: url("../images/header_nav_bg.png"), url("../images/content_bg.png");
+  background-image: url("../images/header_nav_bg.png"), url("../images/content_bg.png");
+  background-position: center top, center;
+  background-repeat: repeat-x, repeat-x; }
+  #home .container {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; }
+    #home .container:after {
+      content: "";
+      display: table;
+      clear: both; }
+  #home header#branding {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%;
+    background: url("../images/header_logo.png") no-repeat 0px 0px;
+    height: 161px;
+    position: absolute;
+    top: 45px; }
+    #home header#branding:last-child {
+      margin-right: 0; }
+    #home header#branding h1 {
+      margin-left: 300px;
+      margin-top: 40px; }
+      #home header#branding h1 span.branding_durango {
+        text-transform: uppercase;
+        font-family: "Signika Negative", sans-serif;
+        font-weight: 600; }
+      #home header#branding h1 span.branding_productive {
+        font-style: italic;
+        font-family: "IM Fell DW Pica", serif;
+        text-transform: lowercase; }
+  #home nav {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-left: -17.05961%;
+    position: absolute;
+    height: 46px;
+    top: 10px; }
+    #home nav:last-child {
+      margin-right: 0; }
+    #home nav ul {
+      text-align: right; }
+      #home nav ul li {
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        display: inline;
+        margin-left: 40px; }
+        #home nav ul li a {
+          color: #a1937e; }
+  #home section#introduction p {
+    font-family: "IM Fell DW Pica", serif; }
+    #home section#introduction p .intro_link {
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #a1937e; }
+  #home section#introduction .lead_head {
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 700; }
+  #home section#introduction .lead_follow {
+    font-size: 20px;
+    font-style: italic; }
+  #home footer ul li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    display: inline; }
+    #home footer ul li:last-child {
+      margin-right: 0; }
+    #home footer ul li img {
+      display: block; }

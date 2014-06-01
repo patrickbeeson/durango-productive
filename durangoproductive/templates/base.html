@@ -19,54 +19,72 @@
 	{% block extra_css %}{% endblock extra_css %}
   </head>
 
-  <body id="home">
+  <body id="{% block page_id %}{% endblock page_id %}">
 
-	<header>
-	  <h1>Durango Productive</h1>
-	</header>
+  	<div class="container">
 
-	<nav>
-	  <ul>
-		<li><a href="about">About</a></li>
-		<li><a href="work">Work</a></li>
-		<li><a href="contact">Contact</a></li>
-	  </ul>
-	</nav>
+		<header id="branding">
+		  <h1><span class="branding_durango">Durango</span> <span class="branding_productive">Productive</span></h1>
+		</header>
 
-	{% block content %}
-	{% endblock content %}
-
-	<footer>
-	  <ul>
-		<li class="footer_about">
-		  <a href="about">
-			<img src="{% static 'images/about_lindsay_tn.png' %}" alt="Lindsay Beeson">
-			About Lindsay
-		  </a>
-		</li>
-		{% block footer_past_projects %}
-		{% endblock footer_past_projects %}
-		<li class="footer_contact">
+		<nav>
 		  <ul>
-			<li>
-			  <span class="contact_method">Email</span>
-			  <span class="contact_info">lindsay@durangoproductive.com</span>
+			<li><a href="about">About</a></li>
+			<li><a href="work">Work</a></li>
+			<li><a href="contact">Contact</a></li>
+		  </ul>
+		</nav>
+
+		{% block content %}
+		{% endblock content %}
+
+		<footer>
+		  <ul>
+			<li class="footer_about">
+			  <a href="about">
+				<img src="{% static 'images/about_lindsay_tn.png' %}" alt="Lindsay Beeson">
+				About Lindsay
+			  </a>
 			</li>
-			<li>
-			  <span class="contact_method">Ring</span>
-			  <span class="contact_info">336-926-2329</span>
+			{% block footer_past_projects %}
+			{% endblock footer_past_projects %}
+			<li class="footer_contact">
+			  <ul>
+				<li>
+				  <span class="contact_method">Email</span>
+				  <span class="contact_info">lindsay@durangoproductive.com</span>
+				</li>
+				<li>
+				  <span class="contact_method">Ring</span>
+				  <span class="contact_info">336-926-2329</span>
+				</li>
+				<li class="footer_copyright">
+			  		<span class="copyright_label">copyright</span>
+			  		<span class="copyright_name">Durango Productive</span>
+				</li>
+			  </ul>
 			</li>
 		  </ul>
-		</li>
-		<li class="footer_copyright">
-		  <span class="copyright_label">copyright</span>
-		  <span class="copyright_name">Durango Productive</span>
-		</li>
-	  </ul>
-	</footer>
+		</footer>
+
+	</div>
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 
-	{% block extra_js %}{% endblock extra_js %}
+	{% block extra_js %}
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'IM+Fell+DW+Pica:400,400italic:latin', 'Signika+Negative:300,400,600,700:latin', 'Montserrat:400,700:latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+	{% endblock extra_js %}
   </body>
 </html>
