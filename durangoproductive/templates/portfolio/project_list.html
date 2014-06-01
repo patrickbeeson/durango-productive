@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Work by Durango Productive{% endblock title %}
+
+{% block content %}
+<section id="my_work">
+	<header>
+		<h2>My Work</h2>
+	</header>
+
+	<p class="lead">A few words about my portfolio and things I want to make sure you know about how I like to collaborate.</p>
+	<p>And if there are more words, this is what they'd look like. I wonder how much I'll want to say here. Hopefully enough to make it look pretty.</p>
+	<ul class="project_list">
+	{% for project in project_list %}
+		<li class="project">
+			<a href="{% url 'portfolio_project_detail' project.slug %}">
+				<img src="{{ MEDIA_URL }}{{ project.lead_art }}" alt="More about {{ project.client_name }}">
+				{{ project.client_name }}
+			</a>
+		</li>
+	{% endfor %}
+	</ul>
+</section>
+
+
+
+
+{% endblock %}

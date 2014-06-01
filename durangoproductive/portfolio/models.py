@@ -82,8 +82,8 @@ class Project(models.Model):
         verbose_name_plural = 'Projects'
         ordering = ('completion_date',)
 
-    def __unicode__(self):
-        return self.title
+    def __str__(self):
+        return self.client_name
 
     def save(self, *args, **kwargs):
         self.description_html = markup(self.description)
@@ -101,14 +101,14 @@ class Asset(models.Model):
         help_text='Briefly describe the asset. Limited to 250 characters.')
     project = models.ForeignKey(Project)
     art = models.ImageField(
-        upload_to='images/portfolio/assets'
+        upload_to='images/portfolio/assets',
         help_text='The art to associated with this project asset.')
 
     class Meta:
         verbose_name_plural = 'Assets'
         ordering = ('id',)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.description
 
 
@@ -132,7 +132,7 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
         ordering = ('title',)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):
