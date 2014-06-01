@@ -1,3 +1,15 @@
-# This file is here because many Platforms as a Service look for
-#	requirements.txt in the root directory of a project.
--r requirements/production.txt
+Django==1.6.5
+Markdown==2.4.1
+MarkupSafe==0.23
+Pillow==2.4.0
+Pygments==1.6
+South==0.8.4
+django-contact-form==1.0
+django-crispy-forms==1.4.0
+django-debug-toolbar==1.2.1
+docutils==0.11
+smartypants==1.8.3
+sorl-thumbnail==11.12
+sqlparse==0.1.11
+typogrify==2.0.4
+wsgiref==0.1.2
