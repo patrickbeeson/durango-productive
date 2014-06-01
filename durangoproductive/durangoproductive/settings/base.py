@@ -202,9 +202,6 @@ LOCAL_APPS = (
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
 
-# Crispy forms template pack
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
-
 ########## END APP CONFIGURATION
 
 
