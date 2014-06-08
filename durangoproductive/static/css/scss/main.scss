@@ -2,6 +2,9 @@
 
 //$visual-grid: true;
 //$visual-grid-color: yellow;
+#main_nav {
+	display: none;
+}
 
 @import 'meyer-reset';
 
@@ -23,129 +26,26 @@
 body {
 	background-color: $footer_sand;
 
-	section.content {
-		@include span-columns(8);
-		@include shift(2);
-		padding-top: 250px;
-
-		.lead {
-			font-size: 20px;
-		}
+	@include media($medium-screen) {
+		@include background-image(url("../images/header_nav_bg.png"), url("../images/content_bg.png"));
+		background-position: center top, center;
+		background-repeat: repeat-x, repeat-x;
 	}
-
-	footer {
-		@include span-columns(8);
-		@include shift(2);
-
-		ul {
-
-			li {
-				text-transform: uppercase;
-				font-family: $font_montserrat;
-				font-weight: 700;
-				font-size: 12px;
-
-
-				a {
-					color: $dp_brown;
-				}
-			}
-
-			.footer_contact {
-				background: url("../images/cropped_hex_tn.png") no-repeat 100px 0px;
-				background-size: 126px 89px;
-				padding-top: 85px;
-
-				ul {
-
-					li {
-						clear: left;
-
-						.contact_method {
-							text-transform: uppercase;
-							font-family: $font_montserrat;
-							font-weight: 700;
-							font-size: 12px;
-						}
-
-						.contact_info {
-							display: block;
-							font-family: $font_imfelldwpica;
-							font-style: italic;
-							font-size: 10px;
-							color: $dp_brown;
-							margin-top: -10px;
-							text-transform: lowercase;
-							font-weight: 400;
-						}
-
-						.copyright_label {
-							display: block;
-							font-family: $font_imfelldwpica;
-							font-style: italic;
-							font-size: 10px;
-							text-transform: lowercase;
-							font-weight: 400;
-						}
-
-						.copyright_name {
-							text-transform: uppercase;
-							font-family: $font_montserrat;
-							font-weight: 700;
-							font-size: 12px;
-							display: block;
-							width: 150px;
-							margin-top: -10px;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-#home {
-	@include background-image(url("../images/header_nav_bg.png"), url("../images/content_bg.png"));
-	background-position: center top, center;
-	background-repeat: repeat-x, repeat-x;
 
 	.container {
 		@include outer-container;
 		position: relative;
 	}
 
-	header#branding {
-		@include span-columns(8);
-		@include shift(2);
-		background: url("../images/header_logo.png") no-repeat 0px 0px;
-		height: 161px;
-		position: absolute;
-		top: 45px;
-
-		h1 {
-			margin-left: 300px;
-			margin-top: 40px;
-
-			span.branding_durango {
-				text-transform: uppercase;
-				font-family: $font_signikanegative;
-				font-weight: 600;
-			}
-
-			span.branding_productive {
-				font-style: italic;
-				font-family: $font_imfelldwpica;
-				text-transform: lowercase;
-			}
-		}
-	}
-
 	nav {
-		@include span-columns(12);
-		@include shift(-2);
-		position: absolute;
-		height: 46px;
-		top: 10px;
+
+		@include media($medium-screen) {
+			@include span-columns(12);
+			@include shift(-2);
+			position: absolute;
+			height: 46px;
+			top: 10px;			
+		}
 
 		ul {
 			text-align: right;
@@ -163,10 +63,79 @@ body {
 		}
 	}
 
-	section#introduction {
+	header#branding {
+		background: url("../images/header_logo.png") no-repeat 0px 0px;
+		height: 161px;
+
+		@include media($medium-screen) {
+			@include span-columns(8);
+			@include shift(2);
+			background: url("../images/header_logo.png") no-repeat 0px 0px;
+			height: 161px;
+			position: absolute;
+			top: 45px;
+		}
+
+		h1 {
+			text-align: center;
+			padding-top: 175px;
+			//font-size: 25px;
+
+			@include media($medium-screen) {
+				margin-left: 300px;
+				margin-top: 40px;
+				text-align: left;
+				padding-top: 0;
+				//font-size: in;
+			}
+
+			a {
+				color: #000;
+
+				&:hover {
+					color: #000;
+					text-decoration: none;
+				}
+			}
+
+			span.branding_durango {
+				text-transform: uppercase;
+				font-family: $font_signikanegative;
+				font-weight: 600;
+				display: block;
+
+				@include media($medium-screen) {
+					display: inline;
+				}
+			}
+
+			span.branding_productive {
+				font-style: italic;
+				font-family: $font_imfelldwpica;
+				text-transform: lowercase;
+			}
+		}
+	}
+
+	section.content {
+		padding-top: 250px;
+		text-align: center;
+
+		@include media($medium-screen) {
+			text-align: left;
+			@include span-columns(8);
+			@include shift(2);
+		}
+
+		header {
+			margin-bottom: 25px;
+		}
 
 		p {
+			@include span-columns(8);
+			@include shift(2);
 			font-family: $font_imfelldwpica;
+			font-size: 14px;
 
 			.intro_link {
 				font-family: $font_montserrat;
@@ -174,13 +143,25 @@ body {
 				text-transform: uppercase;
 				color: $dp_brown;
 			}
+
+			@include media($medium-screen) {
+				font-size: 16px;
+			}			
+		}
+
+		.lead {
+			font-size: 20px;
 		}
 
 		.lead_head {
 			font-family: $font_montserrat;
 			text-transform: uppercase;
-			font-size: 28px;
+			font-size: 14px;
 			font-weight: 700;
+
+			@include media($medium-screen) {
+				font-size: 28px;
+			}
 		}
 
 		.lead_follow {
@@ -190,24 +171,292 @@ body {
 	}
 
 	footer {
-		position: relative;
-		top: 179px;
-		padding-bottom: 100px;
+		@include span-columns(12);
+		text-align: center;
 
 		@include media($medium-screen) {
-			top: 203px;
+			@include span-columns(8);
+			@include shift(2);
+			text-align: left;			
+		}
+
+		#footer_nav {
+			position: absolute;
+			bottom: 185px;
+			margin: 0 auto;
+			width: 100%;
+
+			ul {
+				text-align: center;
+
+				li {
+					margin-left: 0;
+
+					@include media($medium-screen) {
+						margin-left: 40px;
+					}
+
+					&:after {
+						content: " / ";
+						color: $dp_brown;
+					}
+
+					&:last-child:after {
+						content: "";
+					}					
+				}
+			}
+
+			@include media($medium-screen) {
+				display: none;
+			}
 		}
 
 		ul {
 
 			li {
-				@include span-columns(4 of 12);
-				display: inline;
+				text-transform: uppercase;
+				font-family: $font_montserrat;
+				font-weight: 700;
+				font-size: 12px;
+
+
+				a {
+					color: $dp_brown;
+				}
+			}
+
+			.footer_about {
+
+				a {
+
+					img {
+						width: 100%;
+
+						@include media($medium-screen) {
+							width: initial;
+						}
+					}
+				}
+			}
+
+			.footer_contact {
+				background: url("../images/footer_hex_sm.png") no-repeat center top;
+				background-size: 44px 51px;
+				padding-top: 100px;
+				margin-top: 50px;
+
+				@include media($medium-screen) {
+					background: url("../images/cropped_hex_tn.png") no-repeat 100px 0px;
+					background-size: 126px 89px;
+					padding-top: 85px;
+					margin-top: 0;			
+				}
+
+				ul {
+
+					li {
+						clear: left;
+
+						.contact_method {
+							text-transform: uppercase;
+							font-family: $font_montserrat;
+							font-weight: 700;
+							font-size: 12px;
+						}
+
+						.contact_info {
+							font-family: $font_imfelldwpica;
+							font-style: italic;
+							font-size: 10px;
+							color: $dp_brown;
+							margin-top: -10px;
+							text-transform: lowercase;
+							font-weight: 400;
+
+							@include media($medium-screen) {
+								display: block;
+							}
+						}
+
+						.copyright_label {
+							font-family: $font_imfelldwpica;
+							font-style: italic;
+							font-size: 10px;
+							text-transform: lowercase;
+							font-weight: 400;
+
+							@include media($medium-screen) {
+								display: block;
+							}
+						}
+
+						.copyright_name {
+							text-transform: uppercase;
+							font-family: $font_montserrat;
+							font-weight: 700;
+							font-size: 12px;
+							width: 150px;
+							margin-top: -10px;
+
+							@include media($medium-screen) {
+								display: block;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#home {
+
+	footer {
+		position: relative;
+		top: 138px;
+		padding-bottom: 100px;
+		clear: both;
+
+
+		@include media($medium-screen) {
+			top: 187px;
+		}
+
+		@include media($large-screen) {
+			top: 199px;
+		}
+
+		ul {
+
+			li {
+					@include media($medium-screen) {
+						@include span-columns(4 of 12);
+						display: inline;
+					}
 
 				img {
 					display: block;
 				}
 			}
+
+			.footer_past_projects {
+				display: none;
+
+				@include media($medium-screen) {
+					display: block;
+				}
+
+			}
+		}
+	}
+}
+
+#project_list {
+
+	.project_list {
+		@include span-columns(12);
+
+		.project {
+			text-transform: uppercase;
+			margin-bottom: 25px;
+			font-size: 13px;
+			font-weight: 700;
+
+			a {
+				color: $dp_brown;
+			}			
+		}
+	}
+
+	#footer_nav {
+		position: absolute;
+		bottom: 85px;
+		margin: 0 auto;
+		width: 100%;
+
+		ul {
+			text-align: center;
+
+			li {
+				margin-left: 0;
+
+				@include media($medium-screen) {
+					margin-left: 40px;
+				}
+
+				&:after {
+					content: " / ";
+					color: $dp_brown;
+				}
+
+				&:last-child:after {
+					content: "";
+				}					
+			}
+		}
+
+		@include media($medium-screen) {
+			display: none;
+		}
+	}
+}
+
+#project_detail {
+
+	.project_asset_list {
+		@include span-columns(12);
+		margin-bottom: 50 px;
+
+		.asset {
+			margin-top: 25px;
+
+			.asset_description {
+				padding: 2px;
+				background-color: white;
+				font-style: italic;
+				font-family: $font_imfelldwpica;
+				font-size: 12px;
+				display: block;
+				width: 100%;
+			}
+
+			img {
+				margin-top: 10px;
+				width: 100%;
+			}
+		}
+	}
+
+	#footer_nav {
+		position: absolute;
+		bottom: 85px;
+		margin: 0 auto;
+		width: 100%;
+
+		ul {
+			text-align: center;
+
+			li {
+				margin-left: 0;
+
+				@include media($medium-screen) {
+					margin-left: 40px;
+				}
+
+				&:after {
+					content: " / ";
+					color: $dp_brown;
+				}
+
+				&:last-child:after {
+					content: "";
+				}					
+			}
+		}
+
+		@include media($medium-screen) {
+			display: none;
 		}
 	}
 }

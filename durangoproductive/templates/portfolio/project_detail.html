@@ -2,10 +2,12 @@
 
 {% block title %}Work for {{ project.client_name }} by Durango Productive{% endblock title %}
 
+{% block page_id %}project_detail{% endblock page_id %}
+
 {% block content %}
-<section id="project">
+<section id="project" class="content">
 	<header>
-		<h2>{{ project.client_name }}</h2>
+		<h2 class="lead_head">{{ project.client_name }}</h2>
 	</header>
 
 	{{ project.description_html|safe }}
@@ -14,8 +16,8 @@
 	<ul class="project_asset_list">
 	{% for asset in project.asset_set.all %}
 		<li class="asset">
-			<img src="{{ MEDIA_URL }}{{ asset.art }}" alt="{{ asset.description }}">
 			<span class="asset_description">{{ asset.project.client_name }}: {{ asset.description }}</span>
+			<img src="{{ MEDIA_URL }}{{ asset.art }}" alt="{{ asset.description }}">
 		</li>
 	{% endfor %}
 	</ul>

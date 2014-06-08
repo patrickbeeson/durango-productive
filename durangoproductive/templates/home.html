@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block page_id %}home{% endblock page_id %}
 
@@ -13,6 +14,15 @@
 </section>
 {% endblock content %}
 
+{% block footer_about %}
+<li class="footer_about">
+  <a href="about">
+	<img src="{% static 'images/about_lindsay_tn.png' %}" alt="Lindsay Beeson">
+	About Lindsay
+  </a>
+</li>
+{% endblock footer_about %}
+
 {% block footer_past_projects %}
 <li class="footer_past_projects">
 	<a href="about">
@@ -21,3 +31,4 @@
     </a>
 </li>
 {% endblock footer_past_projects %}
+

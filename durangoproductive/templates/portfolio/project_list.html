@@ -2,10 +2,12 @@
 
 {% block title %}Work by Durango Productive{% endblock title %}
 
+{% block page_id %}project_list{% endblock page_id %}
+
 {% block content %}
-<section id="my_work">
+<section id="my_work" class="content">
 	<header>
-		<h2>My Work</h2>
+		<h2 class="lead_head">My Work</h2>
 	</header>
 
 	<p class="lead">A few words about my portfolio and things I want to make sure you know about how I like to collaborate.</p>
@@ -21,8 +23,4 @@
 	{% endfor %}
 	</ul>
 </section>
-
-
-
-
 {% endblock %}

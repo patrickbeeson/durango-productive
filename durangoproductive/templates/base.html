@@ -24,10 +24,10 @@
   	<div class="container">
 
 		<header id="branding">
-		  <h1><span class="branding_durango">Durango</span> <span class="branding_productive">Productive</span></h1>
+		  <h1><a href="/"><span class="branding_durango">Durango</span> <span class="branding_productive">Productive</span></a></h1>
 		</header>
 
-		<nav>
+		<nav id="main_nav" role="navigation">
 		  <ul>
 			<li><a href="about">About</a></li>
 			<li><a href="work">Work</a></li>
@@ -39,13 +39,17 @@
 		{% endblock content %}
 
 		<footer>
+			<nav id="footer_nav">
+			  <ul>
+				<li><a href="about">About</a></li>
+				<li><a href="work">Work</a></li>
+				<li><a href="contact">Contact</a></li>
+			  </ul>
+			</nav>
 		  <ul>
-			<li class="footer_about">
-			  <a href="about">
-				<img src="{% static 'images/about_lindsay_tn.png' %}" alt="Lindsay Beeson">
-				About Lindsay
-			  </a>
-			</li>
+		  	{% block footer_about %}
+			{% endblock footer_about %}
+			
 			{% block footer_past_projects %}
 			{% endblock footer_past_projects %}
 			<li class="footer_contact">
