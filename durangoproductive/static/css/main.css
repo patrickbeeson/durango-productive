@@ -1,6 +1,3 @@
-#main_nav {
-  display: none; }
-
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -244,29 +241,49 @@ body {
       content: "";
       display: table;
       clear: both; }
-  @media screen and (min-width: 40em) {
-    body nav {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 100%;
-      margin-left: -17.05961%;
-      position: absolute;
-      height: 46px;
-      top: 10px; }
-      body nav:last-child {
-        margin-right: 0; } }
-  body nav ul {
-    text-align: right; }
-    body nav ul li {
-      font-family: "Montserrat", sans-serif;
-      text-transform: uppercase;
-      display: inline;
-      margin-left: 40px; }
-      body nav ul li a {
-        color: #a1937e; }
+  body nav#main_nav {
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;
+    top: 325px; }
+    @media screen and (min-width: 40em) {
+      body nav#main_nav {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        margin-left: -17.05961%;
+        position: absolute;
+        height: 46px;
+        top: 10px;
+        margin: 0px; }
+        body nav#main_nav:last-child {
+          margin-right: 0; } }
+    body nav#main_nav ul {
+      text-align: center; }
+      @media screen and (min-width: 40em) {
+        body nav#main_nav ul {
+          text-align: right; } }
+      body nav#main_nav ul li {
+        font-family: "Montserrat", sans-serif;
+        text-transform: uppercase;
+        display: inline; }
+        body nav#main_nav ul li a {
+          color: #a1937e; }
+        body nav#main_nav ul li:after {
+          content: " / ";
+          color: #a1937e; }
+        body nav#main_nav ul li:last-child:after {
+          content: ""; }
+        @media screen and (min-width: 40em) {
+          body nav#main_nav ul li {
+            margin-left: 40px; }
+            body nav#main_nav ul li:after {
+              content: ""; }
+            body nav#main_nav ul li:last-child:after {
+              content: ""; } }
   body header#branding {
-    background: url("../images/header_logo.png") no-repeat 0px 0px;
+    background: url("../images/header_logo.png") no-repeat center center;
     height: 161px; }
     @media screen and (min-width: 40em) {
       body header#branding {
@@ -341,18 +358,24 @@ body {
         body section.content p {
           font-size: 16px; } }
     body section.content .lead {
-      font-size: 20px; }
+      font-size: 16px; }
+      @media screen and (min-width: 40em) {
+        body section.content .lead {
+          font-size: 20px; } }
     body section.content .lead_head {
       font-family: "Montserrat", sans-serif;
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 700; }
       @media screen and (min-width: 40em) {
         body section.content .lead_head {
           font-size: 28px; } }
     body section.content .lead_follow {
-      font-size: 28px;
+      font-size: 16px;
       font-style: italic; }
+      @media screen and (min-width: 40em) {
+        body section.content .lead_follow {
+          font-size: 28px; } }
   body footer {
     float: left;
     display: block;
@@ -371,25 +394,26 @@ body {
         text-align: left; }
         body footer:last-child {
           margin-right: 0; } }
-    body footer #footer_nav {
+    body footer nav#footer_nav {
       position: absolute;
       bottom: 185px;
       margin: 0 auto;
       width: 100%; }
-      body footer #footer_nav ul {
+      body footer nav#footer_nav ul {
         text-align: center; }
-        body footer #footer_nav ul li {
-          margin-left: 0; }
+        body footer nav#footer_nav ul li {
+          margin-left: 0;
+          display: inline; }
           @media screen and (min-width: 40em) {
-            body footer #footer_nav ul li {
+            body footer nav#footer_nav ul li {
               margin-left: 40px; } }
-          body footer #footer_nav ul li:after {
+          body footer nav#footer_nav ul li:after {
             content: " / ";
             color: #a1937e; }
-          body footer #footer_nav ul li:last-child:after {
+          body footer nav#footer_nav ul li:last-child:after {
             content: ""; }
       @media screen and (min-width: 40em) {
-        body footer #footer_nav {
+        body footer nav#footer_nav {
           display: none; } }
     body footer ul li {
       text-transform: uppercase;
@@ -502,7 +526,8 @@ body {
   #project_list #footer_nav ul {
     text-align: center; }
     #project_list #footer_nav ul li {
-      margin-left: 0; }
+      margin-left: 0;
+      display: inline; }
       @media screen and (min-width: 40em) {
         #project_list #footer_nav ul li {
           margin-left: 40px; } }
@@ -536,23 +561,24 @@ body {
     #project_detail .project_asset_list .asset img {
       margin-top: 10px;
       width: 100%; }
-#project_detail #footer_nav {
+#project_detail nav#footer_nav {
   position: absolute;
   bottom: 85px;
   margin: 0 auto;
   width: 100%; }
-  #project_detail #footer_nav ul {
+  #project_detail nav#footer_nav ul {
     text-align: center; }
-    #project_detail #footer_nav ul li {
+    #project_detail nav#footer_nav ul li {
+      display: inline;
       margin-left: 0; }
       @media screen and (min-width: 40em) {
-        #project_detail #footer_nav ul li {
+        #project_detail nav#footer_nav ul li {
           margin-left: 40px; } }
-      #project_detail #footer_nav ul li:after {
+      #project_detail nav#footer_nav ul li:after {
         content: " / ";
         color: #a1937e; }
-      #project_detail #footer_nav ul li:last-child:after {
+      #project_detail nav#footer_nav ul li:last-child:after {
         content: ""; }
   @media screen and (min-width: 40em) {
-    #project_detail #footer_nav {
+    #project_detail nav#footer_nav {
       display: none; } }

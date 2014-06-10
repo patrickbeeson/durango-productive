@@ -2,9 +2,6 @@
 
 //$visual-grid: true;
 //$visual-grid-color: yellow;
-#main_nav {
-	display: none;
-}
 
 @import 'meyer-reset';
 
@@ -37,34 +34,63 @@ body {
 		position: relative;
 	}
 
-	nav {
+	nav#main_nav {
+		position: absolute;
+		margin: 0 auto;
+		width: 100%;
+		top: 325px;
 
 		@include media($medium-screen) {
 			@include span-columns(12);
 			@include shift(-2);
 			position: absolute;
 			height: 46px;
-			top: 10px;			
+			top: 10px;
+			margin: 0px;
 		}
 
 		ul {
-			text-align: right;
+			text-align: center;
+
+			@include media($medium-screen) {
+				text-align: right;
+			}
 
 			li {
 				font-family: $font_montserrat;
 				text-transform: uppercase;
 				display: inline;
-				margin-left: 40px;
-
+				
 				a {
 					color: $dp_brown;
+				}
+
+				&:after {
+					content: " / ";
+					color: $dp_brown;
+				}
+
+				&:last-child:after {
+					content: "";
+				}
+
+				@include media($medium-screen) {
+					margin-left: 40px;
+
+					&:after {
+						content: "";	
+					}
+
+					&:last-child:after {
+						content: "";
+					}
 				}
 			}
 		}
 	}
 
 	header#branding {
-		background: url("../images/header_logo.png") no-repeat 0px 0px;
+		background: url("../images/header_logo.png") no-repeat center center;
 		height: 161px;
 
 		@include media($medium-screen) {
@@ -150,13 +176,17 @@ body {
 		}
 
 		.lead {
-			font-size: 20px;
+			font-size: 16px;
+
+			@include media($medium-screen) {
+				font-size: 20px;
+			}
 		}
 
 		.lead_head {
 			font-family: $font_montserrat;
 			text-transform: uppercase;
-			font-size: 14px;
+			font-size: 16px;
 			font-weight: 700;
 
 			@include media($medium-screen) {
@@ -165,8 +195,12 @@ body {
 		}
 
 		.lead_follow {
-			font-size: 28px;
+			font-size: 16px;
 			font-style: italic;
+
+			@include media($medium-screen) {
+				font-size: 28px;
+			}
 		}
 	}
 
@@ -180,7 +214,7 @@ body {
 			text-align: left;			
 		}
 
-		#footer_nav {
+		nav#footer_nav {
 			position: absolute;
 			bottom: 185px;
 			margin: 0 auto;
@@ -191,6 +225,7 @@ body {
 
 				li {
 					margin-left: 0;
+					display: inline;
 
 					@include media($medium-screen) {
 						margin-left: 40px;
@@ -380,6 +415,7 @@ body {
 
 			li {
 				margin-left: 0;
+				display: inline;
 
 				@include media($medium-screen) {
 					margin-left: 40px;
@@ -428,7 +464,7 @@ body {
 		}
 	}
 
-	#footer_nav {
+	nav#footer_nav {
 		position: absolute;
 		bottom: 85px;
 		margin: 0 auto;
@@ -438,6 +474,7 @@ body {
 			text-align: center;
 
 			li {
+				display: inline;
 				margin-left: 0;
 
 				@include media($medium-screen) {
