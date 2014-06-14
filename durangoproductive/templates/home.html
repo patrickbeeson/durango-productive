@@ -9,14 +9,14 @@
 	<p class="lead">You read something about me. Or met me. Or you saw the design &amp; branding work I do.</p>
 	<p class="lead_follow">And then you came here.</p>
 	<p>I'm looking forward to talking with you about what you envision for your business. Collaborating with clients is where I draw my creative energy.</p>
-	<p>Wanna go on that ride with me? <a href="contact" class="intro_link">Get in touch</a>.
-	<p>Wanna see more of <a href="work" class="intro_link">what I do</a> before you decide? I don't blame you. I like research, too.</p>
+	<p>Wanna go on that ride with me? <a href="{% url 'contact_form' %}" class="intro_link">Get in touch</a>.</p>
+	<p>Wanna see more of <a href="{% url 'portfolio_project_list' %}" class="intro_link">what I do</a> before you decide? I don't blame you. I like research, too.</p>
 </section>
 {% endblock content %}
 
 {% block footer_about %}
 <li class="footer_about">
-  <a href="about">
+  <a href="/about/">
 	<img src="{% static 'images/about_lindsay_tn.png' %}" alt="Lindsay Beeson">
 	About Lindsay
   </a>
@@ -25,7 +25,7 @@
 
 {% block footer_past_projects %}
 <li class="footer_past_projects">
-	<a href="about">
+	<a href="{% url 'portfolio_project_list' %}">
     	<img src="http://placehold.it/254x188" alt="">
         Past Projects
     </a>

@@ -10,22 +10,11 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
     url(r'^$', TemplateView.as_view(template_name='home.html')),
-
-    # Portfolio project urls
     url(r'^work/', include('portfolio.urls.projects')),
-
-    # Contact form
     url(r'^contact/', include('contact_form.urls')),
-
-    # Examples:
-    # url(r'^$', 'durangoproductive.views.home', name='home'),
-    # url(r'^durangoproductive/', include('durangoproductive.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
+    url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls))
 )
 
 # Uncomment the next line to serve media files in dev.

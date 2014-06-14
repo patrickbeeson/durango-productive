@@ -1,19 +1,29 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% load crispy_forms_tags %}
 
-{% block title %}Contact{% endblock title %}
+{% block title %}Contact Durango Productive{% endblock title %}
+
+{% block page_id %}contact_form{% endblock page_id %}
 
 {% block content %}
-<section id="contact">
+<section id="contact" class="content">
 	<header>
-		<h2>Contact</h1>
+		<h2 class="lead_head">Contact</h2>
 	</header>
 	<p><small>NOTE: Fields with an asterisk are required.</small></p>
 	<form method="post">
 		{% csrf_token %}
-		{{ form|crispy }}
+		{{ form }}
 	<button type="submit" class="btn btn-default">Send</button>
 	</form>
 </section>
 {% endblock content %}
+
+{% block footer_about %}
+<li class="footer_about">
+  <a href="/about/">
+	<img src="{% static 'images/about_lindsay_tn.png' %}" alt="Lindsay Beeson">
+	About Lindsay
+  </a>
+</li>
+{% endblock footer_about %}

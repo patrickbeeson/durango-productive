@@ -1,16 +1,17 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load staticfiles %}
+{% load markup %}
+{% block title %}{{ flatpage.title }}{% endblock title %}
 
-{% block title %}Message sent to Durango Productive{% endblock title %}
-
-{% block page_id %}contact_form{% endblock page_id %}
+{% block page_id %}about{% endblock page_id %}
 
 {% block content %}
-<section id="contact" class="content">
+<section id="page" class="content">
 	<header>
-		<h2 class="lead_head">Message sent</h2>
+		<h2 class="lead_head">{{ flatpage.title }}</h2>
 	</header>
-	<p>Your message has been received!</p>
+
+	{{ flatpage.content|markup }}
 </section>
 {% endblock content %}
 

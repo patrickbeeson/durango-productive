@@ -29,21 +29,23 @@
 
 		<nav id="main_nav" role="navigation">
 		  <ul>
-			<li><a href="about">About</a></li>
-			<li><a href="work">Work</a></li>
-			<li><a href="contact">Contact</a></li>
+			<li><a href="/about/">About</a></li>
+			<li><a href="{% url 'portfolio_project_list' %}">Work</a></li>
+			<li><a href="{% url 'contact_form' %}">Contact</a></li>
 		  </ul>
 		</nav>
 
 		{% block content %}
 		{% endblock content %}
+	</div>
 
-		<footer>
+	<footer>
+		<div class="container">
 			<nav id="footer_nav">
 			  <ul>
 				<li><a href="about">About</a></li>
-				<li><a href="work">Work</a></li>
-				<li><a href="contact">Contact</a></li>
+				<li><a href="{% url 'portfolio_project_list' %}">Work</a></li>
+				<li><a href="{% url 'contact_form' %}">Contact</a></li>
 			  </ul>
 			</nav>
 		  <ul>
@@ -56,11 +58,11 @@
 			  <ul>
 				<li>
 				  <span class="contact_method">Email</span>
-				  <span class="contact_info">lindsay@durangoproductive.com</span>
+				  <span class="contact_info"><a href="mailto:lindsay@durangoproductive.com">lindsay@durangoproductive.com</a></span>
 				</li>
 				<li>
 				  <span class="contact_method">Ring</span>
-				  <span class="contact_info">336-926-2329</span>
+				  <span class="contact_info"><a href="tel:3369262329">336-926-2329</a></span>
 				</li>
 				<li class="footer_copyright">
 			  		<span class="copyright_label">copyright</span>
@@ -69,8 +71,9 @@
 			  </ul>
 			</li>
 		  </ul>
-		</footer>
-	</div>
+	  </div>
+	</footer>
+
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 
 	{% block extra_js %}

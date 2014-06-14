@@ -164,6 +164,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.admindocs.middleware.XViewMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware'
 )
 ########## END MIDDLEWARE CONFIGURATION
 
@@ -183,13 +186,15 @@ DJANGO_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.flatpages',
+    'django.contrib.redirects',
 
     # Useful template tags:
     'django.contrib.humanize',
 
     # Admin panel and documentation:
     'django.contrib.admin',
-    'django.contrib.admindocs',
+    'django.contrib.admindocs'
 )
 
 # Apps specific for this project go here.
