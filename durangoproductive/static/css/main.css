@@ -271,6 +271,8 @@ body {
         font-size: 14px; }
         body nav#main_nav ul li a {
           color: #a1937e; }
+          body nav#main_nav ul li a:hover {
+            color: #796c58; }
         body nav#main_nav ul li:after {
           content: " / ";
           color: #a1937e; }
@@ -348,17 +350,29 @@ body {
           margin-right: 0; } }
     body section.content header {
       margin-bottom: 25px; }
+    body section.content a {
+      color: #a1937e; }
+      body section.content a:hover {
+        color: #796c58; }
     body section.content p {
       font-family: "IM Fell DW Pica", serif;
-      font-size: 14px; }
+      font-size: 14px;
+      padding-left: 15px;
+      padding-right: 15px; }
       body section.content p .intro_link {
         font-family: "Montserrat", sans-serif;
-        font-size: 12px;
+        font-size: 16px;
         text-transform: uppercase;
-        color: #a1937e; }
+        color: #a1937e;
+        font-weight: 700; }
+        body section.content p .intro_link:hover {
+          color: #796c58; }
       @media screen and (min-width: 40em) {
         body section.content p {
-          font-size: 22px; } }
+          font-size: 22px;
+          line-height: 1.3em;
+          padding-left: 0;
+          padding-right: 0; } }
     body section.content .lead {
       font-size: 14px; }
       @media screen and (min-width: 40em) {
@@ -435,6 +449,8 @@ body {
           font-size: 14px; } }
       body footer ul li a {
         color: #a1937e; }
+        body footer ul li a:hover {
+          color: #796c58; }
     body footer ul .footer_about {
       margin-bottom: 50px; }
       body footer ul .footer_about a img {
@@ -505,7 +521,7 @@ body {
         margin-right: 0; } }
   #home footer ul li img {
     display: block;
-    margin-bottom: 25px; }
+    margin-bottom: 15px; }
   #home footer ul .footer_past_projects {
     display: none; }
     @media screen and (min-width: 40em) {
@@ -516,7 +532,8 @@ body {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 100%; }
+  width: 100%;
+  margin-top: 25px; }
   #project_list .project_list:last-child {
     margin-right: 0; }
   #project_list .project_list .project {
@@ -532,8 +549,6 @@ body {
         width: 48.82117%; }
         #project_list .project_list .project:last-child {
           margin-right: 0; } }
-    #project_list .project_list .project a {
-      color: #a1937e; }
 #project_list footer {
   margin-top: 50px; }
   @media screen and (min-width: 40em) {
@@ -550,7 +565,7 @@ body {
         margin-right: 0; } }
   #project_list footer ul li img {
     display: block;
-    margin-bottom: 25px; }
+    margin-bottom: 15px; }
   #project_list footer ul .footer_past_projects, #project_list footer ul .footer_about {
     display: none; }
     @media screen and (min-width: 40em) {
@@ -602,6 +617,7 @@ body {
         #project_detail .project_asset_list .asset:last-child {
           margin-right: 0; } }
     #project_detail .project_asset_list .asset .asset_description {
+      text-align: center;
       padding: 2px;
       background-color: white;
       font-style: italic;
@@ -628,7 +644,7 @@ body {
         margin-right: 0; } }
   #project_detail footer ul li img {
     display: block;
-    margin-bottom: 25px; }
+    margin-bottom: 15px; }
   #project_detail footer ul .footer_past_projects, #project_detail footer ul .footer_about {
     display: none; }
     @media screen and (min-width: 40em) {
@@ -662,16 +678,25 @@ body {
   margin-right: 2.35765%;
   width: 100%;
   margin-top: 25px;
-  margin-bottom: 50px; }
+  margin-bottom: 50px;
+  padding-left: 15px;
+  padding-right: 15px; }
   #contact_form form:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 40em) {
+    #contact_form form {
+      padding-left: 0;
+      padding-right: 0; } }
   #contact_form form label {
     text-transform: uppercase;
     font-family: "Montserrat", sans-serif;
     font-weight: 700; }
-  @media screen and (min-width: 40em) {
-    #contact_form form button {
-      float: right; } }
+  #contact_form form button {
+    font-size: 14px; }
+    @media screen and (min-width: 40em) {
+      #contact_form form button {
+        float: right;
+        font-size: 1em; } }
 #contact_form footer {
   margin-top: 50px; }
   @media screen and (min-width: 40em) {
@@ -688,7 +713,7 @@ body {
         margin-right: 0; } }
   #contact_form footer ul li img {
     display: block;
-    margin-bottom: 25px; }
+    margin-bottom: 15px; }
   #contact_form footer ul .footer_past_projects, #contact_form footer ul .footer_about {
     display: none; }
     @media screen and (min-width: 40em) {
@@ -732,7 +757,7 @@ body {
         margin-right: 0; } }
   #about footer ul li img {
     display: block;
-    margin-bottom: 25px; }
+    margin-bottom: 15px; }
   #about footer ul .footer_past_projects, #about footer ul .footer_about {
     display: none; }
     @media screen and (min-width: 40em) {

@@ -64,6 +64,10 @@ body {
 				
 				a {
 					color: $dp_brown;
+
+					&:hover {
+						color: $dp_link_hover_brown;
+					}
 				}
 
 				&:after {
@@ -74,6 +78,8 @@ body {
 				&:last-child:after {
 					content: "";
 				}
+
+
 
 				@include media($medium-screen) {
 					margin-left: 40px;
@@ -159,19 +165,37 @@ body {
 			margin-bottom: 25px;
 		}
 
+		a {
+			color: $dp_brown;
+
+			&:hover {
+				color: $dp_link_hover_brown;
+			}
+		}
+
 		p {
 			font-family: $font_imfelldwpica;
 			font-size: 14px;
+			padding-left: 15px;
+			padding-right: 15px;
 
 			.intro_link {
 				font-family: $font_montserrat;
-				font-size: 12px;
+				font-size: 16px;
 				text-transform: uppercase;
 				color: $dp_brown;
+				font-weight: 700;
+
+				&:hover {
+					color: $dp_link_hover_brown;
+				}
 			}
 
 			@include media($medium-screen) {
 				font-size: 22px;
+				line-height: 1.3em;
+				padding-left: 0;
+				padding-right: 0;
 			}			
 		}
 
@@ -275,6 +299,10 @@ body {
 
 				a {
 					color: $dp_brown;
+
+					&:hover {
+						color: $dp_link_hover_brown;
+					}
 				}
 			}
 
@@ -379,7 +407,7 @@ body {
 
 				img {
 					display: block;
-					margin-bottom: 25px;
+					margin-bottom: 15px;
 				}
 			}
 
@@ -399,6 +427,7 @@ body {
 
 	.project_list {
 		@include span-columns(12);
+		margin-top: 25px;
 
 		.project {
 			text-transform: uppercase;
@@ -408,11 +437,7 @@ body {
 
 			@include media($medium-screen) {
 				@include span-columns(6 of 12);
-			}
-
-			a {
-				color: $dp_brown;
-			}			
+			}		
 		}
 	}
 
@@ -435,7 +460,7 @@ body {
 
 				img {
 					display: block;
-					margin-bottom: 25px;
+					margin-bottom: 15px;
 				}
 			}
 
@@ -506,6 +531,7 @@ body {
 			}
 
 			.asset_description {
+				text-align: center;
 				padding: 2px;
 				background-color: white;
 				font-style: italic;
@@ -541,7 +567,7 @@ body {
 
 				img {
 					display: block;
-					margin-bottom: 25px;
+					margin-bottom: 15px;
 				}
 			}
 
@@ -596,6 +622,13 @@ body {
 		@include span-columns(12);
 		margin-top: 25px;
 		margin-bottom: 50px;
+		padding-left: 15px;
+		padding-right: 15px;
+
+		@include media($medium-screen) {
+			padding-left: 0;
+			padding-right: 0;
+		}
 
 		label {
 			text-transform: uppercase;
@@ -604,9 +637,11 @@ body {
 		}
 
 		button {
+			font-size: 14px;
 
 			@include media ($medium-screen) {
 				float: right;
+				font-size: 1em;
 			}
 		}
 	}
@@ -630,7 +665,7 @@ body {
 
 				img {
 					display: block;
-					margin-bottom: 25px;
+					margin-bottom: 15px;
 				}
 			}
 
@@ -700,7 +735,7 @@ body {
 
 				img {
 					display: block;
-					margin-bottom: 25px;
+					margin-bottom: 15px;
 				}
 			}
 
