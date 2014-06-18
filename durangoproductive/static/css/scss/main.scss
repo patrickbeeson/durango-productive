@@ -97,21 +97,24 @@ body {
 	}
 
 	header#branding {
-		background: url("../images/header_logo.png") no-repeat center center;
-		height: 161px;
+		height: 184px;
+		@include retina-image("../images/header_logo", 307px 184px);
+		background-position: center center;
+		background-repeat: no-repeat;
 
 		@include media($medium-screen) {
 			@include span-columns(10);
 			@include shift(1);
-			background: url("../images/header_logo.png") no-repeat 0px 0px;
-			height: 161px;
+			@include retina-image("../images/header_logo", 307px 184px);
+			background-position: 0px 0px;
+			height: 184px;
 			position: absolute;
 			top: 45px;
 		}
 
 		h1 {
 			text-align: center;
-			padding-top: 175px;
+			padding-top: 185px;
 
 			@include media($medium-screen) {
 				@include span-columns(7 of 10);
@@ -322,16 +325,18 @@ body {
 			}
 
 			.footer_contact {
-				background: url("../images/footer_hex_sm.png") no-repeat 50% 0px;
-				background-size: 44px 51px;
+				@include retina-image("../images/footer_hex", 44px 51px);
+				background-repeat: no-repeat;
+				background-position: 50% 0px;
 				padding-top: 100px;
 				margin-top: 0px;
 
 				@include media($medium-screen) {
-					background: url("../images/cropped_hex_tn.png") no-repeat right top;
-					background-size: 126px 89px;
-					padding-top: 85px;
-					margin-top: 0;			
+					@include retina-image("../images/cropped_hex", 126px 103px);
+					background-repeat: no-repeat;
+					background-position: right top;
+					padding-top: 90px;
+					margin-top: 0;
 				}
 
 				ul {
