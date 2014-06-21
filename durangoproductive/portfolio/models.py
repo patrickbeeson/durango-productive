@@ -3,6 +3,7 @@ from django.utils.encoding import python_2_unicode_compatible
 
 from markdown import markdown
 from typogrify.filters import typogrify
+from sorl.thumbnail import ImageField
 
 
 def markup(text):
@@ -29,10 +30,10 @@ class FeaturedProjectManager(models.Manager):
     Since we only need one featured project, we'll grab the latest using
     the completion date.
     """
-    def get_query(self):
+    def get_queryset(self):
         return super(
             FeaturedProjectManager, self).get_query_set().filter(
-            is_featured=True).latest(
+            is_featured=True, is_public=True).latest(
             'completion_date')
 
 
@@ -40,7 +41,7 @@ class PublicProjectManager(models.Manager):
     """
     Manager to fetch only public projects.
     """
-    def get_query(self):
+    def get_queryset(self):
         return super(PublicProjectManager, self).get_query_set().filter(
             is_public=True)
 
@@ -60,7 +61,7 @@ class Project(models.Model):
     description_html = models.TextField(
         editable=False,
         blank=True)
-    lead_art = models.ImageField(
+    lead_art = ImageField(
         help_text='Used for project representation on homepage and list view.',
         upload_to='images/portfolio/projects')
     is_featured = models.BooleanField(
@@ -75,8 +76,9 @@ class Project(models.Model):
         help_text='When was this project completed?')
     categories = models.ManyToManyField('Category')
 
-    public = PublicProjectManager()
     objects = models.Manager()
+    featured = FeaturedProjectManager()
+    public = PublicProjectManager()
 
     class Meta:
         verbose_name_plural = 'Projects'
@@ -123,7 +125,8 @@ class Category(models.Model):
         help_text='Limited to 250 characters')
     slug = models.SlugField(unique=True)
     description = models.TextField(
-        help_text='No HTML allowed')
+        help_text='No HTML allowed',
+        blank=True)
     description_html = models.TextField(
         editable=False,
         blank=True)

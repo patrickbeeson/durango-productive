@@ -1,9 +1,11 @@
 from django.contrib import admin
 
+from sorl.thumbnail.admin import AdminImageMixin
+
 from .models import Category, Asset, Project
 
 
-class AssetInline(admin.TabularInline):
+class AssetInline(AdminImageMixin, admin.TabularInline):
     model = Asset
 
 
@@ -13,7 +15,7 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(AdminImageMixin, admin.ModelAdmin):
     inlines = [
         AssetInline
     ]

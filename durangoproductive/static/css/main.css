@@ -321,8 +321,8 @@ body {
           float: left;
           display: block;
           margin-right: 2.84259%;
-          width: 69.14722%;
-          margin-left: 20.56852%;
+          width: 79.43148%;
+          margin-left: 10.28426%;
           margin-top: 30px;
           text-align: right;
           padding-top: 0;
@@ -563,7 +563,8 @@ body {
     text-transform: uppercase;
     margin-bottom: 25px;
     font-size: 13px;
-    font-weight: 700; }
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif; }
     @media screen and (min-width: 40em) {
       #project_list .project_list .project {
         float: left;
@@ -571,7 +572,11 @@ body {
         margin-right: 2.35765%;
         width: 48.82117%; }
         #project_list .project_list .project:last-child {
-          margin-right: 0; } }
+          margin-right: 0; }
+        #project_list .project_list .project:nth-child(2n) {
+          margin-right: 0; }
+        #project_list .project_list .project:nth-child(2n+1) {
+          clear: left; } }
 #project_list footer {
   margin-top: 50px; }
   @media screen and (min-width: 40em) {
@@ -620,7 +625,10 @@ body {
   font-size: 16px; }
   @media screen and (min-width: 40em) {
     #project_detail p:first-of-type {
-      font-size: 20px; } }
+      font-size: 32px;
+      line-height: 1.2em;
+      margin-top: 35px;
+      margin-bottom: 35px; } }
 #project_detail .project_asset_list {
   float: left;
   display: block;
@@ -636,16 +644,21 @@ body {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 48.82117%; }
+        width: 48.82117%;
+        padding: 0px 15px 0px 0px; }
         #project_detail .project_asset_list .asset:last-child {
-          margin-right: 0; } }
+          margin-right: 0; }
+        #project_detail .project_asset_list .asset:nth-child(2n) {
+          margin-right: 0; }
+        #project_detail .project_asset_list .asset:nth-child(2n+1) {
+          clear: left; } }
     #project_detail .project_asset_list .asset .asset_description {
       text-align: center;
       padding: 2px;
       background-color: white;
       font-style: italic;
       font-family: "IM Fell DW Pica", serif;
-      font-size: 12px;
+      font-size: 14px;
       display: block;
       width: 100%; }
     #project_detail .project_asset_list .asset img {

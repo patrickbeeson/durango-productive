@@ -40,3 +40,7 @@ Desktop.ini
 
 # SASS cache
 .sass-cache
+
+# Project specific
+durangoproductive/portfolio/migrations
+durangoproductive/media

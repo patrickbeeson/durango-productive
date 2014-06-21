@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load thumbnail %}
 
 {% block page_id %}home{% endblock page_id %}
 
@@ -26,7 +27,9 @@
 {% block footer_past_projects %}
 <li class="footer_past_projects">
 	<a href="{% url 'portfolio_project_list' %}">
-    	<img src="http://placehold.it/254x188" alt="">
+		{% thumbnail featured_project.lead_art "254x188" crop="center" as featured_project_art %}
+    	<img src="{{ featured_project_art.url }}" alt="{{ featured_project.client_name }}">
+    	{% endthumbnail %}
         Past Projects
     </a>
 </li>

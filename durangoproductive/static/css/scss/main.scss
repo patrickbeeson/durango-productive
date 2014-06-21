@@ -117,8 +117,8 @@ body {
 			padding-top: 185px;
 
 			@include media($medium-screen) {
-				@include span-columns(7 of 10);
-				@include shift(2);
+				@include span-columns(8 of 10);
+				@include shift(1);
 				margin-top: 30px;
 				text-align: right;
 				padding-top: 0;
@@ -439,9 +439,11 @@ body {
 			margin-bottom: 25px;
 			font-size: 13px;
 			font-weight: 700;
+			font-family: $font_montserrat;
 
 			@include media($medium-screen) {
 				@include span-columns(6 of 12);
+				@include omega(2n);
 			}		
 		}
 	}
@@ -520,7 +522,10 @@ body {
 		font-size: 16px;
 
 		@include media($medium-screen) {
-			font-size: 20px;
+			font-size: 32px;
+			line-height: 1.2em;
+			margin-top: 35px;
+			margin-bottom: 35px;
 		}
 	}
 
@@ -533,6 +538,8 @@ body {
 
 			@include media($medium-screen) {
 				@include span-columns(6 of 12);
+				@include pad(0px 15px 0px 0px);
+				@include omega(2n);
 			}
 
 			.asset_description {
@@ -541,7 +548,7 @@ body {
 				background-color: white;
 				font-style: italic;
 				font-family: $font_imfelldwpica;
-				font-size: 12px;
+				font-size: 14px;
 				display: block;
 				width: 100%;
 			}
