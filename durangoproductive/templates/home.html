@@ -16,12 +16,7 @@
 {% endblock content %}
 
 {% block footer_about %}
-<li class="footer_about">
-  <a href="/about/">
-	<img src="{% static 'images/about_lindsay_2x.jpg' %}" alt="Lindsay Beeson">
-	About Lindsay
-  </a>
-</li>
+{% include "includes/about_lindsay.html" %}
 {% endblock footer_about %}
 
 {% block footer_past_projects %}

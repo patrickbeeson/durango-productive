@@ -1,1 +1,19 @@
-<h1>Whoops!</h1>
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}500 Server Error{% endblock title %}
+
+{% block page_id %}error{% endblock page_id %}
+
+{% block content %}
+<section id="page" class="content">
+	<header>
+		<h2 class="lead_head">Server Error</h2>
+	</header>
+
+	<p>Something is wrong with our server. Please try again in a little while.</p>
+</section>
+{% endblock content %}
+
+{% block footer_about %}
+{% include "includes/about_lindsay.html" %}
+{% endblock footer_about %}
