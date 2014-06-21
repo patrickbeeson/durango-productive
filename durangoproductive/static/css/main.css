@@ -469,7 +469,7 @@ body {
         width: 100%; }
         @media screen and (min-width: 40em) {
           body footer ul .footer_about a img {
-            width: initial; } }
+            width: 254px; } }
     body footer ul .footer_contact {
       background-image: url("../images/footer_hex.png");
       background-repeat: no-repeat;
