@@ -705,13 +705,13 @@ body {
   margin-top: 50px; }
   @media screen and (min-width: 40em) {
     #project_list footer ul, #project_detail footer ul, #about footer ul, #contact_form footer ul, #error footer ul {
-      margin-left: 34.11922%; } }
+      margin-left: 51.17883%; } }
   @media screen and (min-width: 40em) {
     #project_list footer ul li, #project_detail footer ul li, #about footer ul li, #contact_form footer ul li, #error footer ul li {
       float: left;
       display: block;
-      margin-right: 2.35765%;
-      width: 31.76157%;
+      margin-right: 3.57866%;
+      width: 48.21067%;
       display: inline; }
       #project_list footer ul li:last-child, #project_detail footer ul li:last-child, #about footer ul li:last-child, #contact_form footer ul li:last-child, #error footer ul li:last-child {
         margin-right: 0; } }
@@ -720,9 +720,6 @@ body {
     margin-bottom: 15px; }
   #project_list footer ul .footer_past_projects, #project_list footer ul .footer_about, #project_detail footer ul .footer_past_projects, #project_detail footer ul .footer_about, #about footer ul .footer_past_projects, #about footer ul .footer_about, #contact_form footer ul .footer_past_projects, #contact_form footer ul .footer_about, #error footer ul .footer_past_projects, #error footer ul .footer_about {
     display: none; }
-    @media screen and (min-width: 40em) {
-      #project_list footer ul .footer_past_projects, #project_list footer ul .footer_about, #project_detail footer ul .footer_past_projects, #project_detail footer ul .footer_about, #about footer ul .footer_past_projects, #about footer ul .footer_about, #contact_form footer ul .footer_past_projects, #contact_form footer ul .footer_about, #error footer ul .footer_past_projects, #error footer ul .footer_about {
-        display: block; } }
 #project_list #footer_nav, #project_detail #footer_nav, #about #footer_nav, #contact_form #footer_nav, #error #footer_nav {
   position: absolute;
   bottom: 85px;

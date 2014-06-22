@@ -445,13 +445,13 @@ body {
 		ul {
 			
 			@include media($medium-screen) {
-				@include shift(4);
+				@include shift(6);
 			}
 
 			li {
 
 				@include media($medium-screen) {
-					@include span-columns(4 of 12);
+					@include span-columns(4 of 8);
 					
 					display: inline;
 				}
@@ -464,11 +464,6 @@ body {
 
 			.footer_past_projects, .footer_about {
 				display: none;
-
-				@include media($medium-screen) {
-					display: block;
-				}
-
 			}
 		}
 	}
