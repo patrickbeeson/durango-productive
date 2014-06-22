@@ -32,7 +32,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = environ.get('EMAIL_HOST', 'smtp.webfaction.com')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-password
-EMAIL_HOST_PASSWORD = environ.get('EMAIL_HOST_PASSWORD', 'BeeNgo')
+EMAIL_HOST_PASSWORD = environ.get('EMAIL_HOST_PASSWORD', '151Piedmont')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-user
 EMAIL_HOST_USER = environ.get('EMAIL_HOST_USER', 'durangoproductive')
@@ -47,7 +47,9 @@ EMAIL_SUBJECT_PREFIX = '[%s] ' % SITE_NAME
 EMAIL_USE_TLS = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#server-email
-SERVER_EMAIL = environ.get('SERVER_EMAIL', 'webmaster@durangoproductive.com')
+SERVER_EMAIL = environ.get('SERVER_EMAIL', 'admin@durangoproductive.com')
+
+DEFAULT_FROM_EMAIL = environ.get('DEFAULT_FROM_EMAIL', 'webmaster@durangoproductive.com')
 ########## END EMAIL CONFIGURATION
 
 ########## DATABASE CONFIGURATION

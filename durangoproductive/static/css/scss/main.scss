@@ -428,7 +428,7 @@ body {
 	}
 }
 
-#project_list, #project_detail, #about, #contact_form {
+#project_list, #project_detail, #about, #contact_form, #error {
 
 	footer {
 		margin-top: 50px;
@@ -595,7 +595,7 @@ body {
 	}
 }
 
-#about {
+#about, #error {
 	
 	p:first-of-type {
 		font-size: 16px;

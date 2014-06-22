@@ -551,48 +551,48 @@ body {
       #home footer ul .footer_past_projects {
         display: block; } }
 
-#project_list footer, #project_detail footer, #about footer, #contact_form footer {
+#project_list footer, #project_detail footer, #about footer, #contact_form footer, #error footer {
   margin-top: 50px; }
   @media screen and (min-width: 40em) {
-    #project_list footer ul, #project_detail footer ul, #about footer ul, #contact_form footer ul {
+    #project_list footer ul, #project_detail footer ul, #about footer ul, #contact_form footer ul, #error footer ul {
       margin-left: 34.11922%; } }
   @media screen and (min-width: 40em) {
-    #project_list footer ul li, #project_detail footer ul li, #about footer ul li, #contact_form footer ul li {
+    #project_list footer ul li, #project_detail footer ul li, #about footer ul li, #contact_form footer ul li, #error footer ul li {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 31.76157%;
       display: inline; }
-      #project_list footer ul li:last-child, #project_detail footer ul li:last-child, #about footer ul li:last-child, #contact_form footer ul li:last-child {
+      #project_list footer ul li:last-child, #project_detail footer ul li:last-child, #about footer ul li:last-child, #contact_form footer ul li:last-child, #error footer ul li:last-child {
         margin-right: 0; } }
-  #project_list footer ul li img, #project_detail footer ul li img, #about footer ul li img, #contact_form footer ul li img {
+  #project_list footer ul li img, #project_detail footer ul li img, #about footer ul li img, #contact_form footer ul li img, #error footer ul li img {
     display: block;
     margin-bottom: 15px; }
-  #project_list footer ul .footer_past_projects, #project_list footer ul .footer_about, #project_detail footer ul .footer_past_projects, #project_detail footer ul .footer_about, #about footer ul .footer_past_projects, #about footer ul .footer_about, #contact_form footer ul .footer_past_projects, #contact_form footer ul .footer_about {
+  #project_list footer ul .footer_past_projects, #project_list footer ul .footer_about, #project_detail footer ul .footer_past_projects, #project_detail footer ul .footer_about, #about footer ul .footer_past_projects, #about footer ul .footer_about, #contact_form footer ul .footer_past_projects, #contact_form footer ul .footer_about, #error footer ul .footer_past_projects, #error footer ul .footer_about {
     display: none; }
     @media screen and (min-width: 40em) {
-      #project_list footer ul .footer_past_projects, #project_list footer ul .footer_about, #project_detail footer ul .footer_past_projects, #project_detail footer ul .footer_about, #about footer ul .footer_past_projects, #about footer ul .footer_about, #contact_form footer ul .footer_past_projects, #contact_form footer ul .footer_about {
+      #project_list footer ul .footer_past_projects, #project_list footer ul .footer_about, #project_detail footer ul .footer_past_projects, #project_detail footer ul .footer_about, #about footer ul .footer_past_projects, #about footer ul .footer_about, #contact_form footer ul .footer_past_projects, #contact_form footer ul .footer_about, #error footer ul .footer_past_projects, #error footer ul .footer_about {
         display: block; } }
-#project_list #footer_nav, #project_detail #footer_nav, #about #footer_nav, #contact_form #footer_nav {
+#project_list #footer_nav, #project_detail #footer_nav, #about #footer_nav, #contact_form #footer_nav, #error #footer_nav {
   position: absolute;
   bottom: 85px;
   margin: 0 auto;
   width: 100%; }
-  #project_list #footer_nav ul, #project_detail #footer_nav ul, #about #footer_nav ul, #contact_form #footer_nav ul {
+  #project_list #footer_nav ul, #project_detail #footer_nav ul, #about #footer_nav ul, #contact_form #footer_nav ul, #error #footer_nav ul {
     text-align: center; }
-    #project_list #footer_nav ul li, #project_detail #footer_nav ul li, #about #footer_nav ul li, #contact_form #footer_nav ul li {
+    #project_list #footer_nav ul li, #project_detail #footer_nav ul li, #about #footer_nav ul li, #contact_form #footer_nav ul li, #error #footer_nav ul li {
       margin-left: 0;
       display: inline; }
       @media screen and (min-width: 40em) {
-        #project_list #footer_nav ul li, #project_detail #footer_nav ul li, #about #footer_nav ul li, #contact_form #footer_nav ul li {
+        #project_list #footer_nav ul li, #project_detail #footer_nav ul li, #about #footer_nav ul li, #contact_form #footer_nav ul li, #error #footer_nav ul li {
           margin-left: 40px; } }
-      #project_list #footer_nav ul li:after, #project_detail #footer_nav ul li:after, #about #footer_nav ul li:after, #contact_form #footer_nav ul li:after {
+      #project_list #footer_nav ul li:after, #project_detail #footer_nav ul li:after, #about #footer_nav ul li:after, #contact_form #footer_nav ul li:after, #error #footer_nav ul li:after {
         content: " / ";
         color: #a1937e; }
-      #project_list #footer_nav ul li:last-child:after, #project_detail #footer_nav ul li:last-child:after, #about #footer_nav ul li:last-child:after, #contact_form #footer_nav ul li:last-child:after {
+      #project_list #footer_nav ul li:last-child:after, #project_detail #footer_nav ul li:last-child:after, #about #footer_nav ul li:last-child:after, #contact_form #footer_nav ul li:last-child:after, #error #footer_nav ul li:last-child:after {
         content: ""; }
   @media screen and (min-width: 40em) {
-    #project_list #footer_nav, #project_detail #footer_nav, #about #footer_nav, #contact_form #footer_nav {
+    #project_list #footer_nav, #project_detail #footer_nav, #about #footer_nav, #contact_form #footer_nav, #error #footer_nav {
       display: none; } }
 
 #project_list .project_list {
@@ -692,10 +692,10 @@ body {
         float: right;
         font-size: 1em; } }
 
-#about p:first-of-type {
+#about p:first-of-type, #error p:first-of-type {
   font-size: 16px; }
   @media screen and (min-width: 40em) {
-    #about p:first-of-type {
+    #about p:first-of-type, #error p:first-of-type {
       font-size: 32px;
       line-height: 1.2em;
       margin-top: 35px;
