@@ -64,6 +64,7 @@ body {
 				text-transform: uppercase;
 				display: inline;
 				font-size: 14px;
+				font-weight: 700;
 				
 				a {
 					color: $dp_brown;
@@ -184,16 +185,21 @@ body {
 			font-size: 14px;
 			padding-left: 15px;
 			padding-right: 15px;
+			line-height: 1.5em;
 
 			.intro_link {
 				font-family: $font_montserrat;
-				font-size: 16px;
+				font-size: 13px;
 				text-transform: uppercase;
 				color: $dp_brown;
 				font-weight: 700;
 
 				&:hover {
 					color: $dp_link_hover_brown;
+				}
+
+				@include media($medium-screen) {
+					font-size: 16px;
 				}
 			}
 
@@ -513,10 +519,12 @@ body {
 			font-size: 13px;
 			font-weight: 700;
 			font-family: $font_montserrat;
+			text-align: center;
 
 			@include media($medium-screen) {
 				@include span-columns(6 of 12);
 				@include omega(2n);
+				font-size: 19px;
 			}		
 		}
 	}

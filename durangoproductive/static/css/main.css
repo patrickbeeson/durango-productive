@@ -413,7 +413,8 @@ body {
         font-family: "Montserrat", sans-serif;
         text-transform: uppercase;
         display: inline;
-        font-size: 14px; }
+        font-size: 14px;
+        font-weight: 700; }
         body nav#main_nav ul li a {
           color: #a1937e; }
           body nav#main_nav ul li a:hover {
@@ -515,15 +516,19 @@ body {
       font-family: "IM Fell DW Pica", serif;
       font-size: 14px;
       padding-left: 15px;
-      padding-right: 15px; }
+      padding-right: 15px;
+      line-height: 1.5em; }
       body section.content p .intro_link {
         font-family: "Montserrat", sans-serif;
-        font-size: 16px;
+        font-size: 13px;
         text-transform: uppercase;
         color: #a1937e;
         font-weight: 700; }
         body section.content p .intro_link:hover {
           color: #796c58; }
+        @media screen and (min-width: 40em) {
+          body section.content p .intro_link {
+            font-size: 16px; } }
       @media screen and (min-width: 40em) {
         body section.content p {
           font-size: 22px;
@@ -753,13 +758,15 @@ body {
     margin-bottom: 25px;
     font-size: 13px;
     font-weight: 700;
-    font-family: "Montserrat", sans-serif; }
+    font-family: "Montserrat", sans-serif;
+    text-align: center; }
     @media screen and (min-width: 40em) {
       #project_list .project_list .project {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 48.82117%; }
+        width: 48.82117%;
+        font-size: 19px; }
         #project_list .project_list .project:last-child {
           margin-right: 0; }
         #project_list .project_list .project:nth-child(2n) {
