@@ -1,7 +1,7 @@
 // External libraries
 
-//$visual-grid: true;
-//$visual-grid-color: yellow;
+$visual-grid: true;
+$visual-grid-color: yellow;
 
 @import 'meyer-reset';
 
@@ -445,13 +445,14 @@ body {
 		ul {
 			
 			@include media($medium-screen) {
-				@include shift(6);
+				//@include shift(6);
 			}
 
 			li {
 
 				@include media($medium-screen) {
-					@include span-columns(4 of 8);
+					@include span-columns(6 of 12);
+					@include shift(6);
 					
 					display: inline;
 				}
