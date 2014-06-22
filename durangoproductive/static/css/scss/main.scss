@@ -9,6 +9,9 @@
 
 @import 'bitters/bitters';
 @import 'bitters/grid-settings';
+@import 'bitters/forms';
+@import 'bitters/buttons';
+@import 'bitters/flashes';
 
 @import 'neat/neat';
 
@@ -585,12 +588,15 @@ body {
 		}
 
 		button {
-			font-size: 14px;
+			@include button($dark-gray);
 
-			@include media ($medium-screen) {
+			@include media($medium-screen) {
 				float: right;
-				font-size: 1em;
 			}
+		}
+
+		.errorlist {
+			@extend %flash-error;
 		}
 	}
 }
