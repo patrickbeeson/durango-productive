@@ -428,25 +428,7 @@ body {
 	}
 }
 
-#project_list {
-
-	.project_list {
-		@include span-columns(12);
-		margin-top: 25px;
-
-		.project {
-			text-transform: uppercase;
-			margin-bottom: 25px;
-			font-size: 13px;
-			font-weight: 700;
-			font-family: $font_montserrat;
-
-			@include media($medium-screen) {
-				@include span-columns(6 of 12);
-				@include omega(2n);
-			}		
-		}
-	}
+#project_list, #project_detail, #about, #contact_form {
 
 	footer {
 		margin-top: 50px;
@@ -516,6 +498,27 @@ body {
 	}
 }
 
+#project_list {
+
+	.project_list {
+		@include span-columns(12);
+		margin-top: 25px;
+
+		.project {
+			text-transform: uppercase;
+			margin-bottom: 25px;
+			font-size: 13px;
+			font-weight: 700;
+			font-family: $font_montserrat;
+
+			@include media($medium-screen) {
+				@include span-columns(6 of 12);
+				@include omega(2n);
+			}		
+		}
+	}
+}
+
 #project_detail {
 
 	p:first-of-type {
@@ -559,73 +562,6 @@ body {
 			}
 		}
 	}
-
-	footer {
-		margin-top: 50px;
-
-		ul {
-			
-			@include media($medium-screen) {
-				@include shift(4);
-			}
-
-			li {
-
-				@include media($medium-screen) {
-					@include span-columns(4 of 12);
-					
-					display: inline;
-				}
-
-				img {
-					display: block;
-					margin-bottom: 15px;
-				}
-			}
-
-			.footer_past_projects, .footer_about {
-				display: none;
-
-				@include media($medium-screen) {
-					display: block;
-				}
-
-			}
-		}
-	}
-
-	nav#footer_nav {
-		position: absolute;
-		bottom: 85px;
-		margin: 0 auto;
-		width: 100%;
-
-		ul {
-			text-align: center;
-
-			li {
-				display: inline;
-				margin-left: 0;
-
-				@include media($medium-screen) {
-					margin-left: 40px;
-				}
-
-				&:after {
-					content: " / ";
-					color: $dp_brown;
-				}
-
-				&:last-child:after {
-					content: "";
-				}					
-			}
-		}
-
-		@include media($medium-screen) {
-			display: none;
-		}
-	}
 }
 
 #contact_form {
@@ -657,141 +593,18 @@ body {
 			}
 		}
 	}
-
-	footer {
-		margin-top: 50px;
-
-		ul {
-			
-			@include media($medium-screen) {
-				@include shift(4);
-			}
-
-			li {
-
-				@include media($medium-screen) {
-					@include span-columns(4 of 12);
-					
-					display: inline;
-				}
-
-				img {
-					display: block;
-					margin-bottom: 15px;
-				}
-			}
-
-			.footer_past_projects, .footer_about {
-				display: none;
-
-				@include media($medium-screen) {
-					display: block;
-				}
-
-			}
-		}
-	}
-
-	nav#footer_nav {
-		position: absolute;
-		bottom: 85px;
-		margin: 0 auto;
-		width: 100%;
-
-		ul {
-			text-align: center;
-
-			li {
-				display: inline;
-				margin-left: 0;
-
-				@include media($medium-screen) {
-					margin-left: 40px;
-				}
-
-				&:after {
-					content: " / ";
-					color: $dp_brown;
-				}
-
-				&:last-child:after {
-					content: "";
-				}					
-			}
-		}
-
-		@include media($medium-screen) {
-			display: none;
-		}
-	}
 }
 
 #about {
-
-	footer {
-		margin-top: 50px;
-
-		ul {
-			
-			@include media($medium-screen) {
-				@include shift(4);
-			}
-
-			li {
-
-				@include media($medium-screen) {
-					@include span-columns(4 of 12);
-					
-					display: inline;
-				}
-
-				img {
-					display: block;
-					margin-bottom: 15px;
-				}
-			}
-
-			.footer_past_projects, .footer_about {
-				display: none;
-
-				@include media($medium-screen) {
-					display: block;
-				}
-
-			}
-		}
-	}
-
-	nav#footer_nav {
-		position: absolute;
-		bottom: 85px;
-		margin: 0 auto;
-		width: 100%;
-
-		ul {
-			text-align: center;
-
-			li {
-				display: inline;
-				margin-left: 0;
-
-				@include media($medium-screen) {
-					margin-left: 40px;
-				}
-
-				&:after {
-					content: " / ";
-					color: $dp_brown;
-				}
-
-				&:last-child:after {
-					content: "";
-				}					
-			}
-		}
+	
+	p:first-of-type {
+		font-size: 16px;
 
 		@include media($medium-screen) {
-			display: none;
+			font-size: 32px;
+			line-height: 1.2em;
+			margin-top: 35px;
+			margin-bottom: 35px;
 		}
 	}
 }

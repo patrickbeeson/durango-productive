@@ -34,6 +34,7 @@ TEMPLATE_DEBUG = DEBUG
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
     ('Patrick Beeson', 'patrick@durangoproductive.com'),
+    ('Lindsay Beeson', 'lindsay@durangoproductive.com')
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
