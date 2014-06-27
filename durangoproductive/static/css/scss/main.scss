@@ -186,14 +186,16 @@ body {
 
 		p {
 			font-family: $font_imfelldwpica;
-			font-size: 14px;
+			//font-size: 16px;
+			font-size: 18px;
 			padding-left: 15px;
 			padding-right: 15px;
 			line-height: 1.5em;
 
 			.intro_link {
 				font-family: $font_montserrat;
-				font-size: 13px;
+				//font-size: 13px;
+				font-size: 14px;
 				text-transform: uppercase;
 				color: $dp_brown;
 				font-weight: 700;
@@ -216,7 +218,8 @@ body {
 		}
 
 		.lead {
-			font-size: 14px;
+			//font-size: 14px;
+			font-size: 20px;
 
 			@include media($medium-screen) {
 				font-size: 32px;
@@ -229,7 +232,8 @@ body {
 		.lead_head {
 			font-family: $font_montserrat;
 			text-transform: uppercase;
-			font-size: 14px;
+			//font-size: 14px;
+			font-size: 18px;
 			font-weight: 700;
 
 			@include media($medium-screen) {
@@ -238,7 +242,8 @@ body {
 		}
 
 		.lead_follow {
-			font-size: 14px;
+			//font-size: 14px;
+			font-size: 22px;
 			font-style: italic;
 
 			@include media($medium-screen) {
@@ -307,11 +312,6 @@ body {
 				font-family: $font_montserrat;
 				font-weight: 700;
 				font-size: 14px;
-
-				@include media($medium-screen) {
-					font-size: 14px;
-				}
-
 
 				a {
 					color: $dp_brown;
@@ -447,17 +447,12 @@ body {
 		margin-top: 50px;
 
 		ul {
-			
-			@include media($medium-screen) {
-				//@include shift(6);
-			}
 
 			li {
 
 				@include media($medium-screen) {
 					@include span-columns(6 of 12);
-					@include shift(6);
-					
+					@include shift(6);	
 					display: inline;
 				}
 
@@ -516,7 +511,8 @@ body {
 		.project {
 			text-transform: uppercase;
 			margin-bottom: 25px;
-			font-size: 13px;
+			//font-size: 13px;
+			font-size: 15px;
 			font-weight: 700;
 			font-family: $font_montserrat;
 			text-align: center;
@@ -533,7 +529,8 @@ body {
 #project_detail {
 
 	p:first-of-type {
-		font-size: 16px;
+		//font-size: 16px;
+		font-size: 20px;
 
 		@include media($medium-screen) {
 			font-size: 32px;
@@ -612,7 +609,8 @@ body {
 #about, #error {
 	
 	p:first-of-type {
-		font-size: 16px;
+		//font-size: 16px;
+		font-size: 18px;
 
 		@include media($medium-screen) {
 			font-size: 32px;
