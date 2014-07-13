@@ -20,7 +20,7 @@
 		<li class="asset">
 			<span class="asset_description">{{ asset.project.client_name }}: {{ asset.description }}</span>
 			<a href="{{ MEDIA_URL }}{{ asset.art }}" data-title="{{ asset.project.client_name }}: {{ asset.description }}" data-lightbox="roadtrip">
-				{% thumbnail asset.art "335x335" crop="center" as asset_art %}
+				{% thumbnail asset.art "335x335" crop="center" format='PNG' as asset_art %}
 				<img src="{{ asset_art.url }}" alt="{{ asset.description }}">
 				{% endthumbnail %}
 			</a>
