@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load thumbnail %}
 
 {% block title %}Work for {{ project.client_name }} by Durango Productive{% endblock title %}
 
@@ -18,7 +19,11 @@
 	{% for asset in project.asset_set.all %}
 		<li class="asset">
 			<span class="asset_description">{{ asset.project.client_name }}: {{ asset.description }}</span>
-			<img src="{{ MEDIA_URL }}{{ asset.art }}" alt="{{ asset.description }}">
+			<a href="{{ MEDIA_URL }}{{ asset.art }}" data-title="{{ asset.project.client_name }}: {{ asset.description }}" data-lightbox="roadtrip">
+				{% thumbnail asset.art "335x335" crop="center" as asset_art %}
+				<img src="{{ asset_art.url }}" alt="{{ asset.description }}">
+				{% endthumbnail %}
+			</a>
 		</li>
 	{% endfor %}
 	</ul>
