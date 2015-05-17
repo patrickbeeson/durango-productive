@@ -2,6 +2,7 @@
 
 from __future__ import absolute_import
 
+import json
 from os import environ
 
 from .base import *
@@ -10,13 +11,18 @@ from .base import *
 # into your settings, but ImproperlyConfigured is an exception.
 from django.core.exceptions import ImproperlyConfigured
 
+# SECRETS CONFIGURATION
+secrets_path = normpath(join(SITE_ROOT, 'secrets.json'))
 
-def get_env_setting(setting):
-    """ Get the environment setting or return exception """
+with open(secrets_path) as f:
+    secrets = json.loads(f.read())
+
+
+def get_secret(setting, secrets=secrets):
     try:
-        return environ[setting]
+        return secrets[setting]
     except KeyError:
-        error_msg = "Set the %s env variable" % setting
+        error_msg = "Set the {} environment variable".format(setting)
         raise ImproperlyConfigured(error_msg)
 
 ########## HOST CONFIGURATION
@@ -29,13 +35,13 @@ ALLOWED_HOSTS = ['.durangoproductive.com']
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host
-EMAIL_HOST = environ.get('EMAIL_HOST', 'smtp.webfaction.com')
+EMAIL_HOST = get_json('EMAIL_HOST')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-password
-EMAIL_HOST_PASSWORD = environ.get('EMAIL_HOST_PASSWORD', '151Piedmont')
+EMAIL_HOST_PASSWORD = get_json('EMAIL_HOST_PASSWORD')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-user
-EMAIL_HOST_USER = environ.get('EMAIL_HOST_USER', 'durangoproductive')
+EMAIL_HOST_USER = get_json('EMAIL_HOST_USER'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-port
 EMAIL_PORT = environ.get('EMAIL_PORT', 587)
@@ -56,9 +62,9 @@ DEFAULT_FROM_EMAIL = environ.get('DEFAULT_FROM_EMAIL', 'webmaster@durangoproduct
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'durango_productive',
-        'USER': 'durango_productive',
-        'PASSWORD': 'B33Ng0',
+        'NAME': get_json('DB_NAME'),
+        'USER': get_json('DB_USER'),
+        'PASSWORD': get_JSON('DB_PASSWORD'),
         'HOST': '',
         'PORT': '',
     }
@@ -78,5 +84,5 @@ CACHES = {
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = r"jim1z&i*zyc=wr8yuoyi*cr-0b*%w$x8lo_wq=6ufy78n(=40@"
+SECRET_KEY = get_json('SECRET_KEY')
 ########## END SECRET CONFIGURATION

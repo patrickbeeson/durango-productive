@@ -45,3 +45,5 @@ Desktop.ini
 durangoproductive/media
 debug_toolbar
 admin
+durangoproductive/durangoproductive/settings/local.py
+secrets.json

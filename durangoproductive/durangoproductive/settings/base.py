@@ -3,7 +3,26 @@
 
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
+import json
 
+
+# Normally you should not import ANYTHING from Django directly
+# into your settings, but ImproperlyConfigured is an exception.
+from django.core.exceptions import ImproperlyConfigured
+
+# SECRETS CONFIGURATION
+secrets_path = normpath(join(SITE_ROOT, 'secrets.json'))
+
+with open(secrets_path) as f:
+    secrets = json.loads(f.read())
+
+
+def get_secret(setting, secrets=secrets):
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {} environment variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
