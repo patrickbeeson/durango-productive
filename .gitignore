@@ -42,5 +42,6 @@ Desktop.ini
 .sass-cache
 
 # Project specific
-durangoproductive/portfolio/migrations
 durangoproductive/media
+debug_toolbar
+admin
