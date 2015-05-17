@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 
 from markdown import markdown
 from typogrify.filters import typogrify
@@ -24,6 +23,15 @@ def markup(text):
                 'smart_strong']))
 
 
+class PublicProjectManager(models.Manager):
+    """
+    Manager to fetch only public projects.
+    """
+    def get_queryset(self):
+        return super(PublicProjectManager, self).get_queryset().filter(
+            is_public=True)
+
+
 class FeaturedProjectManager(models.Manager):
     """
     Manager to fetch only featured projects.
@@ -32,21 +40,11 @@ class FeaturedProjectManager(models.Manager):
     """
     def get_queryset(self):
         return super(
-            FeaturedProjectManager, self).get_query_set().filter(
+            FeaturedProjectManager, self).get_queryset().filter(
             is_featured=True, is_public=True).latest(
             'completion_date')
 
 
-class PublicProjectManager(models.Manager):
-    """
-    Manager to fetch only public projects.
-    """
-    def get_queryset(self):
-        return super(PublicProjectManager, self).get_query_set().filter(
-            is_public=True)
-
-
-@python_2_unicode_compatible
 class Project(models.Model):
     """
     A project in the portfolio.
@@ -96,7 +94,6 @@ class Project(models.Model):
         return ('portfolio_project_detail', (), {'slug': self.slug})
 
 
-@python_2_unicode_compatible
 class Asset(models.Model):
     description = models.CharField(
         max_length=250,
@@ -114,7 +111,6 @@ class Asset(models.Model):
         return self.description
 
 
-@python_2_unicode_compatible
 class Category(models.Model):
     """
     A category for managing project types.

@@ -1,99 +1,64 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+import sorl.thumbnail.fields
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Project'
-        db.create_table(u'portfolio_project', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('client_name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=50)),
-            ('description', self.gf('django.db.models.fields.TextField')()),
-            ('description_html', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('lead_art', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('is_featured', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('is_public', self.gf('django.db.models.fields.BooleanField')(default=True)),
-            ('completion_date', self.gf('django.db.models.fields.DateField')()),
-        ))
-        db.send_create_signal(u'portfolio', ['Project'])
+    dependencies = [
+    ]
 
-        # Adding M2M table for field categories on 'Project'
-        m2m_table_name = db.shorten_name(u'portfolio_project_categories')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('project', models.ForeignKey(orm[u'portfolio.project'], null=False)),
-            ('category', models.ForeignKey(orm[u'portfolio.category'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['project_id', 'category_id'])
-
-        # Adding model 'Asset'
-        db.create_table(u'portfolio_asset', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('description', self.gf('django.db.models.fields.CharField')(max_length=250)),
-            ('project', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['portfolio.Project'])),
-            ('art', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-        ))
-        db.send_create_signal(u'portfolio', ['Asset'])
-
-        # Adding model 'Category'
-        db.create_table(u'portfolio_category', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('title', self.gf('django.db.models.fields.CharField')(max_length=250)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(unique=True, max_length=50)),
-            ('description', self.gf('django.db.models.fields.TextField')()),
-            ('description_html', self.gf('django.db.models.fields.TextField')(blank=True)),
-        ))
-        db.send_create_signal(u'portfolio', ['Category'])
-
-
-    def backwards(self, orm):
-        # Deleting model 'Project'
-        db.delete_table(u'portfolio_project')
-
-        # Removing M2M table for field categories on 'Project'
-        db.delete_table(db.shorten_name(u'portfolio_project_categories'))
-
-        # Deleting model 'Asset'
-        db.delete_table(u'portfolio_asset')
-
-        # Deleting model 'Category'
-        db.delete_table(u'portfolio_category')
-
-
-    models = {
-        u'portfolio.asset': {
-            'Meta': {'ordering': "('id',)", 'object_name': 'Asset'},
-            'art': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
-            'description': ('django.db.models.fields.CharField', [], {'max_length': '250'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'project': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['portfolio.Project']"})
-        },
-        u'portfolio.category': {
-            'Meta': {'ordering': "('title',)", 'object_name': 'Category'},
-            'description': ('django.db.models.fields.TextField', [], {}),
-            'description_html': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '50'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '250'})
-        },
-        u'portfolio.project': {
-            'Meta': {'ordering': "('completion_date',)", 'object_name': 'Project'},
-            'categories': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['portfolio.Category']", 'symmetrical': 'False'}),
-            'client_name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'completion_date': ('django.db.models.fields.DateField', [], {}),
-            'description': ('django.db.models.fields.TextField', [], {}),
-            'description_html': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_featured': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'is_public': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
-            'lead_art': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50'})
-        }
-    }
-
-    complete_apps = ['portfolio']
+    operations = [
+        migrations.CreateModel(
+            name='Asset',
+            fields=[
+                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
+                ('description', models.CharField(max_length=250, help_text='Briefly describe the asset. Limited to 250 characters.')),
+                ('art', models.ImageField(upload_to='images/portfolio/assets', help_text='The art to associated with this project asset.')),
+            ],
+            options={
+                'ordering': ('id',),
+                'verbose_name_plural': 'Assets',
+            },
+        ),
+        migrations.CreateModel(
+            name='Category',
+            fields=[
+                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
+                ('title', models.CharField(max_length=250, help_text='Limited to 250 characters')),
+                ('slug', models.SlugField(unique=True)),
+                ('description', models.TextField(blank=True, help_text='No HTML allowed')),
+                ('description_html', models.TextField(blank=True, editable=False)),
+            ],
+            options={
+                'ordering': ('title',),
+                'verbose_name_plural': 'Categories',
+            },
+        ),
+        migrations.CreateModel(
+            name='Project',
+            fields=[
+                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
+                ('client_name', models.CharField(max_length=100, help_text='Limited to 100 characters.')),
+                ('slug', models.SlugField(help_text='Populates from the client name field automatically.')),
+                ('description', models.TextField(help_text='No HTML allowed')),
+                ('description_html', models.TextField(blank=True, editable=False)),
+                ('lead_art', sorl.thumbnail.fields.ImageField(upload_to='images/portfolio/projects', help_text='Used for project representation on homepage and list view.')),
+                ('is_featured', models.BooleanField(default=False, help_text='Determines whether the project will         be displayed on the homepage.')),
+                ('is_public', models.BooleanField(default=True, help_text='Determines whether the project is public on         the website. Admins can view if false.')),
+                ('completion_date', models.DateField(help_text='When was this project completed?')),
+                ('categories', models.ManyToManyField(to='portfolio.Category')),
+            ],
+            options={
+                'ordering': ('completion_date',),
+                'verbose_name_plural': 'Projects',
+            },
+        ),
+        migrations.AddField(
+            model_name='asset',
+            name='project',
+            field=models.ForeignKey(to='portfolio.Project'),
+        ),
+    ]
