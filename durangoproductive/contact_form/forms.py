@@ -12,7 +12,7 @@ class ContactForm(ModelForm):
         label='If you enter anything in this field your comment will be '
               'treated as spam',
         widget=HiddenInput(attrs={'style': 'display: none;'})
-        )
+    )
 
     def clean_honeypot(self):
         """Check that nothing's been entered into the honeypot."""
