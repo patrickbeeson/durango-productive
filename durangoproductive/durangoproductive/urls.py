@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^$', include('homepage.urls.homepage')),
     url(r'^robots\.txt$', RobotsView.as_view()),
     url(r'^work/', include('portfolio.urls.projects')),
-    url(r'^contact/', include('contact_form.urls')),
+    url(r'^contact/', include('contact_form.urls.contact_form')),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls))
