@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Contact Durango Productive{% endblock title %}
+
+{% block page_id %}contact_form{% endblock page_id %}
+
+{% block content %}
+<section id="contact" class="content">
+    <header>
+        <h2 class="lead_head">Contact</h2>
+    </header>
+    <p><small>NOTE: All fields are required.</small></p>
+    {% for message in messages %}
+    <div class="flash-{% if message.tags %}{{ message.tags }}{% endif %}">
+        <span>{{ message }}</span>
+    </div>
+    {% endfor %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form}}
+    <button type="submit" class="btn btn-default">Send</button>
+    </form>
+</section>
+{% endblock content %}
