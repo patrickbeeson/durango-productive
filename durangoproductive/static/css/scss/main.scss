@@ -24,6 +24,7 @@
 
 @import 'colors';
 @import 'fonts';
+@import 'mixins';
 
 // Lightbox
 
@@ -32,595 +33,611 @@
 // Homepage
 
 body {
-	background-color: $footer_sand;
-
-	@include media($medium-screen) {
-		@include background-image(url("../images/header_nav_bg.png"), url("../images/content_bg_no_footer.png"));
-		background-position: center top, center;
-		background-repeat: repeat-x, repeat;
-	}
-
-	.container {
-		@include outer-container;
-		position: relative;
-	}
-
-	nav#main_nav {
-		position: absolute;
-		margin: 0 auto;
-		width: 100%;
-		top: 300px;
-
-		@include media($medium-screen) {
-			@include span-columns(10);
-			@include shift(-2);
-			position: absolute;
-			height: 46px;
-			top: 10px;
-			margin: 0px;
-		}
-
-		ul {
-			text-align: center;
-
-			@include media($medium-screen) {
-				text-align: right;
-			}
-
-			li {
-				font-family: $font_montserrat;
-				text-transform: uppercase;
-				display: inline;
-				font-size: 14px;
-				font-weight: 700;
-				
-				a {
-					color: $dp_brown;
-
-					&:hover {
-						color: $dp_link_hover_brown;
-					}
-				}
-
-				&:after {
-					content: " / ";
-					color: $dp_brown;
-				}
-
-				&:last-child:after {
-					content: "";
-				}
-
-
-
-				@include media($medium-screen) {
-					margin-left: 40px;
-
-					&:after {
-						content: "";	
-					}
-
-					&:last-child:after {
-						content: "";
-					}
-				}
-			}
-		}
-	}
-
-	header#branding {
-		height: 184px;
-		@include retina-image("../images/header_logo", 307px 184px);
-		background-position: center center;
-		background-repeat: no-repeat;
-
-		@include media($medium-screen) {
-			@include span-columns(10);
-			@include shift(1);
-			@include retina-image("../images/header_logo", 307px 184px);
-			background-position: 0px 0px;
-			height: 184px;
-			position: absolute;
-			top: 45px;
-		}
-
-		h1 {
-			text-align: center;
-			padding-top: 185px;
-
-			@include media($medium-screen) {
-				@include span-columns(8 of 10);
-				@include shift(1);
-				margin-top: 30px;
-				text-align: right;
-				padding-top: 0;
-				font-size: 52px;
-			}
-
-			a {
-				color: #000;
-
-				&:hover {
-					color: #000;
-					text-decoration: none;
-				}
-			}
-
-			span.branding_durango {
-				text-transform: uppercase;
-				font-family: $font_signikanegative;
-				font-weight: 600;
-				display: block;
-
-				@include media($medium-screen) {
-					display: inline;
-				}
-			}
-
-			span.branding_productive {
-				font-style: italic;
-				font-family: $font_imfelldwpica;
-				text-transform: lowercase;
-			}
-		}
-	}
-
-	section.content {
-		padding-top: 200px;
-		text-align: center;
-
-		@include media($medium-screen) {
-			text-align: left;
-			@include span-columns(8);
-			@include shift(2);
-			padding-top: 250px;
-		}
-
-		header {
-			margin-bottom: 25px;
-		}
-
-		a {
-			color: $dp_brown;
-
-			&:hover {
-				color: $dp_link_hover_brown;
-			}
-		}
-
-		p {
-			font-family: $font_imfelldwpica;
-			//font-size: 16px;
-			font-size: 18px;
-			padding-left: 15px;
-			padding-right: 15px;
-			line-height: 1.5em;
-
-			.intro_link {
-				font-family: $font_montserrat;
-				//font-size: 13px;
-				font-size: 14px;
-				text-transform: uppercase;
-				color: $dp_brown;
-				font-weight: 700;
-
-				&:hover {
-					color: $dp_link_hover_brown;
-				}
-
-				@include media($medium-screen) {
-					font-size: 16px;
-				}
-			}
-
-			@include media($medium-screen) {
-				font-size: 22px;
-				line-height: 1.3em;
-				padding-left: 0;
-				padding-right: 0;
-			}			
-		}
-
-		.lead {
-			//font-size: 14px;
-			font-size: 20px;
-
-			@include media($medium-screen) {
-				font-size: 32px;
-				line-height: 1.2em;
-				margin-top: 35px;
-				margin-bottom: 35px;
-			}
-		}
-
-		.lead_head {
-			font-family: $font_montserrat;
-			text-transform: uppercase;
-			//font-size: 14px;
-			font-size: 18px;
-			font-weight: 700;
-
-			@include media($medium-screen) {
-				font-size: 28px;
-			}
-		}
-
-		.lead_follow {
-			//font-size: 14px;
-			font-size: 22px;
-			font-style: italic;
-
-			@include media($medium-screen) {
-				font-size: 32px;
-			}
-		}
-	}
-
-	footer {
-		background-color: $footer_sand;
-		padding-bottom: 25px;
-		margin-top: 50px;
-
-		@include media($medium-screen) {
-			border-top: 10px solid $footer_gray;
-		}
-
-		%inner_container {
-			@include span-columns(12);
-			text-align: center;
-
-			@include media($medium-screen) {
-				@include span-columns(8);
-				@include shift(2);
-				text-align: left;			
-			}	
-		}
-
-
-
-		nav#footer_nav {
-			position: absolute;
-			bottom: 90px;
-			margin: 0 auto;
-			width: 100%;
-
-			ul {
-				text-align: center;
-
-				li {
-					margin-left: 0;
-					display: inline;
-					font-size: 12px;
-
-					&:after {
-						content: " / ";
-						color: $dp_brown;
-					}
-
-					&:last-child:after {
-						content: "";
-					}					
-				}
-			}
-
-			@include media($medium-screen) {
-				display: none;
-			}
-		}
-
-		ul {
-			@extend %inner_container;
-
-			li {
-				text-transform: uppercase;
-				font-family: $font_montserrat;
-				font-weight: 700;
-				font-size: 14px;
-
-				a {
-					color: $dp_brown;
-
-					&:hover {
-						color: $dp_link_hover_brown;
-					}
-				}
-			}
-
-			.footer_about {
-				margin-bottom: 50px;
-
-				a {
-
-					img {
-						width: 100%;
-
-						@include media($medium-screen) {
-							width: 254px;
-						}
-					}
-				}
-			}
-
-			.footer_contact {
-				@include retina-image("../images/footer_hex", 44px 51px);
-				background-repeat: no-repeat;
-				background-position: 50% 0px;
-				padding-top: 100px;
-				margin-top: 0px;
-
-				@include media($medium-screen) {
-					@include retina-image("../images/cropped_hex", 126px 103px);
-					background-repeat: no-repeat;
-					background-position: right top;
-					padding-top: 90px;
-					margin-top: 0;
-				}
-
-				ul {
-
-					li {
-						clear: left;
-
-						.contact_method {
-							text-transform: uppercase;
-							font-family: $font_montserrat;
-							font-weight: 700;
-							font-size: 12px;
-						}
-
-						.contact_info {
-							font-family: $font_imfelldwpica;
-							font-style: italic;
-							font-size: 10px;
-							color: $dp_brown;
-							margin-top: -10px;
-							text-transform: lowercase;
-							font-weight: 400;
-							width: 75px;
-
-							@include media($medium-screen) {
-								display: block;
-							}
-						}
-
-						.copyright_label {
-							font-family: $font_imfelldwpica;
-							font-style: italic;
-							font-size: 10px;
-							text-transform: lowercase;
-							font-weight: 400;
-
-							@include media($medium-screen) {
-								display: block;
-							}
-						}
-
-						.copyright_name {
-							text-transform: uppercase;
-							font-family: $font_montserrat;
-							font-weight: 700;
-							font-size: 12px;
-							width: 150px;
-							margin-top: -10px;
-
-							@include media($medium-screen) {
-								display: block;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+    background-color: $footer_sand;
+
+    @include media($medium-screen) {
+        @include background-image(url("../images/header_nav_bg.png"), url("../images/content_bg_no_footer.png"));
+        background-position: center top, center;
+        background-repeat: repeat-x, repeat;
+    }
+
+    .container {
+        @include outer-container;
+        position: relative;
+    }
+
+    nav#main_nav {
+        position: absolute;
+        margin: 0 auto;
+        width: 100%;
+        top: 300px;
+
+        @include media($medium-screen) {
+            @include span-columns(10);
+            @include shift(-2);
+            position: absolute;
+            height: 46px;
+            top: 10px;
+            margin: 0px;
+        }
+
+        ul {
+            text-align: center;
+
+            @include media($medium-screen) {
+                text-align: right;
+            }
+
+            li {
+                font-family: $font_montserrat;
+                text-transform: uppercase;
+                display: inline;
+                font-size: 14px;
+                font-weight: 700;
+
+                a {
+                    color: $dp_brown;
+
+                    &:hover {
+                        color: $dp_link_hover_brown;
+                    }
+                }
+
+                &:after {
+                    content: " / ";
+                    color: $dp_brown;
+                }
+
+                &:last-child:after {
+                    content: "";
+                }
+
+
+
+                @include media($medium-screen) {
+                    margin-left: 40px;
+
+                    &:after {
+                        content: "";
+                    }
+
+                    &:last-child:after {
+                        content: "";
+                    }
+                }
+            }
+        }
+    }
+
+    header#branding {
+        height: 184px;
+        @include retina-image("../images/header_logo", 307px 184px);
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        @include media($medium-screen) {
+            @include span-columns(10);
+            @include shift(1);
+            @include retina-image("../images/header_logo", 307px 184px);
+            background-position: 0px 0px;
+            height: 184px;
+            position: absolute;
+            top: 45px;
+        }
+
+        h1 {
+            text-align: center;
+            padding-top: 185px;
+
+            @include media($medium-screen) {
+                @include span-columns(8 of 10);
+                @include shift(1);
+                margin-top: 30px;
+                text-align: right;
+                padding-top: 0;
+                font-size: 52px;
+            }
+
+            a {
+                color: #000;
+
+                &:hover {
+                    color: #000;
+                    text-decoration: none;
+                }
+            }
+
+            span.branding_durango {
+                text-transform: uppercase;
+                font-family: $font_signikanegative;
+                font-weight: 600;
+                display: block;
+
+                @include media($medium-screen) {
+                    display: inline;
+                }
+            }
+
+            span.branding_productive {
+                font-style: italic;
+                font-family: $font_imfelldwpica;
+                text-transform: lowercase;
+            }
+        }
+    }
+
+    section.content {
+        padding-top: 200px;
+        text-align: center;
+
+        @include media($medium-screen) {
+            text-align: left;
+            @include span-columns(8);
+            @include shift(2);
+            padding-top: 250px;
+        }
+
+        header {
+            margin-bottom: 25px;
+        }
+
+        a {
+            color: $dp_brown;
+
+            &:hover {
+                color: $dp_link_hover_brown;
+            }
+        }
+
+        p {
+            font-family: $font_imfelldwpica;
+            //font-size: 16px;
+            font-size: 18px;
+            padding-left: 15px;
+            padding-right: 15px;
+            line-height: 1.5em;
+
+            .intro_link {
+                font-family: $font_montserrat;
+                //font-size: 13px;
+                font-size: 14px;
+                text-transform: uppercase;
+                color: $dp_brown;
+                font-weight: 700;
+
+                &:hover {
+                    color: $dp_link_hover_brown;
+                }
+
+                @include media($medium-screen) {
+                    font-size: 16px;
+                }
+            }
+
+            @include media($medium-screen) {
+                font-size: 22px;
+                line-height: 1.3em;
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .lead {
+            //font-size: 14px;
+            font-size: 20px;
+
+            @include media($medium-screen) {
+                font-size: 32px;
+                line-height: 1.2em;
+                margin-top: 35px;
+                margin-bottom: 35px;
+            }
+        }
+
+        .lead_head {
+            font-family: $font_montserrat;
+            text-transform: uppercase;
+            //font-size: 14px;
+            font-size: 18px;
+            font-weight: 700;
+
+            @include media($medium-screen) {
+                font-size: 28px;
+            }
+        }
+
+        .lead_follow {
+            //font-size: 14px;
+            font-size: 22px;
+            font-style: italic;
+
+            @include media($medium-screen) {
+                font-size: 32px;
+            }
+        }
+    }
+
+    footer {
+        background-color: $footer_sand;
+        padding-bottom: 25px;
+        margin-top: 50px;
+
+        @include media($medium-screen) {
+            border-top: 10px solid $footer_gray;
+        }
+
+        %inner_container {
+            @include span-columns(12);
+            text-align: center;
+
+            @include media($medium-screen) {
+                @include span-columns(8);
+                @include shift(2);
+                text-align: left;
+            }
+        }
+
+
+
+        nav#footer_nav {
+            position: absolute;
+            bottom: 90px;
+            margin: 0 auto;
+            width: 100%;
+
+            ul {
+                text-align: center;
+
+                li {
+                    margin-left: 0;
+                    display: inline;
+                    font-size: 12px;
+
+                    &:after {
+                        content: " / ";
+                        color: $dp_brown;
+                    }
+
+                    &:last-child:after {
+                        content: "";
+                    }
+                }
+            }
+
+            @include media($medium-screen) {
+                display: none;
+            }
+        }
+
+        ul {
+            @extend %inner_container;
+
+            li {
+                text-transform: uppercase;
+                font-family: $font_montserrat;
+                font-weight: 700;
+                font-size: 14px;
+
+                a {
+                    color: $dp_brown;
+
+                    &:hover {
+                        color: $dp_link_hover_brown;
+                    }
+                }
+            }
+
+            .footer_about {
+                margin-bottom: 50px;
+
+                a {
+
+                    img {
+                        width: 100%;
+
+                        @include media($medium-screen) {
+                            width: 254px;
+                        }
+                    }
+                }
+            }
+
+            .footer_contact {
+                @include retina-image("../images/footer_hex", 44px 51px);
+                background-repeat: no-repeat;
+                background-position: 50% 0px;
+                padding-top: 100px;
+                margin-top: 0px;
+
+                @include media($medium-screen) {
+                    @include retina-image("../images/cropped_hex", 126px 103px);
+                    background-repeat: no-repeat;
+                    background-position: right top;
+                    padding-top: 90px;
+                    margin-top: 0;
+                }
+
+                ul {
+
+                    li {
+                        clear: left;
+
+                        .contact_method {
+                            text-transform: uppercase;
+                            font-family: $font_montserrat;
+                            font-weight: 700;
+                            font-size: 12px;
+                        }
+
+                        .contact_info {
+                            font-family: $font_imfelldwpica;
+                            font-style: italic;
+                            font-size: 10px;
+                            color: $dp_brown;
+                            margin-top: -10px;
+                            text-transform: lowercase;
+                            font-weight: 400;
+                            width: 75px;
+
+                            @include media($medium-screen) {
+                                display: block;
+                            }
+                        }
+
+                        .copyright_label {
+                            font-family: $font_imfelldwpica;
+                            font-style: italic;
+                            font-size: 10px;
+                            text-transform: lowercase;
+                            font-weight: 400;
+
+                            @include media($medium-screen) {
+                                display: block;
+                            }
+                        }
+
+                        .copyright_name {
+                            text-transform: uppercase;
+                            font-family: $font_montserrat;
+                            font-weight: 700;
+                            font-size: 12px;
+                            width: 150px;
+                            margin-top: -10px;
+
+                            @include media($medium-screen) {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 #home {
 
-	footer {
-		margin-top: 50px;
+    footer {
+        margin-top: 50px;
 
-		ul {
+        ul {
 
-			li {
-					@include media($medium-screen) {
-						@include span-columns(4 of 12);
-						display: inline;
-					}
+            li {
+                    @include media($medium-screen) {
+                        @include span-columns(4 of 12);
+                        display: inline;
+                    }
 
-				img {
-					display: block;
-					margin-bottom: 15px;
-				}
-			}
+                img {
+                    display: block;
+                    margin-bottom: 15px;
+                }
+            }
 
-			.footer_past_projects {
-				display: none;
+            .footer_past_projects {
+                display: none;
 
-				@include media($medium-screen) {
-					display: block;
-				}
+                @include media($medium-screen) {
+                    display: block;
+                }
 
-			}
-		}
-	}
+            }
+        }
+    }
 }
 
 #project_list, #project_detail, #about, #contact_form, #error {
 
-	footer {
-		margin-top: 50px;
+    footer {
+        margin-top: 50px;
 
-		ul {
+        ul {
 
-			li {
+            li {
 
-				@include media($medium-screen) {
-					@include span-columns(6 of 12);
-					@include shift(6);	
-					display: inline;
-				}
+                @include media($medium-screen) {
+                    @include span-columns(6 of 12);
+                    @include shift(6);
+                    display: inline;
+                }
 
-				img {
-					display: block;
-					margin-bottom: 15px;
-				}
-			}
+                img {
+                    display: block;
+                    margin-bottom: 15px;
+                }
+            }
 
-			.footer_past_projects, .footer_about {
-				display: none;
-			}
-		}
-	}
+            .footer_past_projects, .footer_about {
+                display: none;
+            }
+        }
+    }
 
-	#footer_nav {
-		position: absolute;
-		bottom: 85px;
-		margin: 0 auto;
-		width: 100%;
+    #footer_nav {
+        position: absolute;
+        bottom: 85px;
+        margin: 0 auto;
+        width: 100%;
 
-		ul {
-			text-align: center;
+        ul {
+            text-align: center;
 
-			li {
-				margin-left: 0;
-				display: inline;
+            li {
+                margin-left: 0;
+                display: inline;
 
-				@include media($medium-screen) {
-					margin-left: 40px;
-				}
+                @include media($medium-screen) {
+                    margin-left: 40px;
+                }
 
-				&:after {
-					content: " / ";
-					color: $dp_brown;
-				}
+                &:after {
+                    content: " / ";
+                    color: $dp_brown;
+                }
 
-				&:last-child:after {
-					content: "";
-				}					
-			}
-		}
+                &:last-child:after {
+                    content: "";
+                }
+            }
+        }
 
-		@include media($medium-screen) {
-			display: none;
-		}
-	}
+        @include media($medium-screen) {
+            display: none;
+        }
+    }
 }
 
 #project_list {
 
-	.project_list {
-		@include span-columns(12);
-		margin-top: 25px;
+    .project_list {
+        @include span-columns(12);
+        margin-top: 25px;
 
-		.project {
-			text-transform: uppercase;
-			margin-bottom: 25px;
-			//font-size: 13px;
-			font-size: 15px;
-			font-weight: 700;
-			font-family: $font_montserrat;
-			text-align: center;
+        .project {
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            //font-size: 13px;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: $font_montserrat;
+            text-align: center;
 
-			@include media($medium-screen) {
-				@include span-columns(6 of 12);
-				@include omega(2n);
-				font-size: 19px;
-			}		
-		}
-	}
+            @include media($medium-screen) {
+                @include span-columns(6 of 12);
+                @include omega(2n);
+                font-size: 19px;
+            }
+        }
+    }
 }
 
 #project_detail {
 
-	p:first-of-type {
-		//font-size: 16px;
-		font-size: 20px;
+    p:first-of-type {
+        //font-size: 16px;
+        font-size: 20px;
 
-		@include media($medium-screen) {
-			font-size: 32px;
-			line-height: 1.2em;
-			margin-top: 35px;
-			margin-bottom: 35px;
-		}
-	}
+        @include media($medium-screen) {
+            font-size: 32px;
+            line-height: 1.2em;
+            margin-top: 35px;
+            margin-bottom: 35px;
+        }
+    }
 
-	.project_asset_list {
-		@include span-columns(12);
-		margin-bottom: 50 px;
+    .project_asset_list {
+        @include span-columns(12);
+        margin-bottom: 50 px;
 
-		.asset {
-			margin-top: 25px;
+        .asset {
+            margin-top: 25px;
 
-			@include media($medium-screen) {
-				@include span-columns(6 of 12);
-				@include pad(0px 15px 0px 0px);
-				@include omega(2n);
-			}
+            @include media($medium-screen) {
+                @include span-columns(6 of 12);
+                @include pad(0px 15px 0px 0px);
+                @include omega(2n);
+            }
 
-			.asset_description {
-				text-align: center;
-				padding: 2px;
-				background-color: white;
-				font-style: italic;
-				font-family: $font_imfelldwpica;
-				font-size: 14px;
-				display: block;
-				width: 100%;
-			}
+            .asset_description {
+                text-align: center;
+                padding: 2px;
+                background-color: white;
+                font-style: italic;
+                font-family: $font_imfelldwpica;
+                font-size: 14px;
+                display: block;
+                width: 100%;
+            }
 
-			img {
-				margin-top: 10px;
-				width: 100%;
-			}
-		}
-	}
+            img {
+                margin-top: 10px;
+                width: 100%;
+            }
+        }
+    }
 }
 
 #contact_form {
 
-	form {
-		@include span-columns(12);
-		margin-top: 25px;
-		margin-bottom: 50px;
-		padding-left: 15px;
-		padding-right: 15px;
+    .flash-alert {
+      @include flash($alert-color);
+    }
 
-		@include media($medium-screen) {
-			padding-left: 0;
-			padding-right: 0;
-		}
+    .flash-error {
+      @include flash($error-color);
+    }
 
-		label {
-			text-transform: uppercase;
-			font-family: $font_montserrat;
-			font-weight: 700;
-		}
+    .flash-notice {
+      @include flash($notice-color);
+    }
 
-		button {
-			@include button($dark-gray);
+    .flash-success {
+      @include flash($success-color);
+    }
 
-			@include media($medium-screen) {
-				float: right;
-			}
-		}
+    form {
+        @include span-columns(12);
+        margin-top: 25px;
+        margin-bottom: 50px;
+        padding-left: 15px;
+        padding-right: 15px;
 
-		.errorlist {
-			@extend %flash-error;
-		}
-	}
+        @include media($medium-screen) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        label {
+            text-transform: uppercase;
+            font-family: $font_montserrat;
+            font-weight: 700;
+        }
+
+        button {
+            @include button($dark-gray);
+
+            @include media($medium-screen) {
+                float: right;
+            }
+        }
+
+        .errorlist {
+            @extend %flash-error;
+        }
+    }
 }
 
 #about, #error {
-	
-	p:first-of-type {
-		//font-size: 16px;
-		font-size: 18px;
 
-		@include media($medium-screen) {
-			font-size: 32px;
-			line-height: 1.2em;
-			margin-top: 35px;
-			margin-bottom: 35px;
-		}
-	}
+    p:first-of-type {
+        //font-size: 16px;
+        font-size: 18px;
+
+        @include media($medium-screen) {
+            font-size: 32px;
+            line-height: 1.2em;
+            margin-top: 35px;
+            margin-bottom: 35px;
+        }
+    }
 }
