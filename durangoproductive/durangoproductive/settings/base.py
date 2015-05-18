@@ -55,6 +55,11 @@ ADMINS = (
     ('Lindsay Beeson', 'lindsay@durangoproductive.com')
 )
 
+LIST_OF_EMAIL_RECIPIENTS = [
+    'patrick@durangoproductive.com',
+    'lindsay@durangoproductive.com'
+]
+
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 ########## END MANAGER CONFIGURATION
@@ -216,6 +221,7 @@ LOCAL_APPS = (
     'crispy_forms',
     'sorl.thumbnail',
     'homepage',
+    'contact_form',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
