@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from .views import ProjectDetail, ProjectList
+from portfolio.views import ProjectDetail, ProjectList
 
 """
 URL patterns for portfolio projects

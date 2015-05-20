@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from .views import HomePageView
+from homepage.views import HomePageView
 
 """
 URL patterns for the homepage
