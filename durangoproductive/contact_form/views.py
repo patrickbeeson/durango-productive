@@ -15,7 +15,7 @@ class ContactFormView(FormMessagesMixin, CreateView):
     form_class = ContactForm
     template_name = 'contact_form/contact_form.html'
     form_invalid_message = _(u'There was an error with your submission.')
-    form_valid_message = _(u'Thank you for contacting DurangoProductive. '
+    form_valid_message = _(u'Thank you for contacting Durango Productive. '
                            'We\'ll be in touch soon!')
 
     def get_success_url(self):
@@ -30,7 +30,7 @@ class ContactFormView(FormMessagesMixin, CreateView):
             email=form.cleaned_data.get('email'))
         message += "\n\n{0}".format(form.cleaned_data.get('message'))
         send_mail(
-            subject='[DurangoProductive] Contact form submission',
+            subject='[Durango Productive] Contact form submission',
             message=message,
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=settings.LIST_OF_EMAIL_RECIPIENTS,
