@@ -3,7 +3,7 @@
 from __future__ import absolute_import
 
 import json
-from os import environ
+from os.path import join, normpath
 
 from .base import *
 
@@ -35,13 +35,13 @@ ALLOWED_HOSTS = ['.durangoproductive.com']
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host
-EMAIL_HOST = get_json('EMAIL_HOST')
+EMAIL_HOST = get_secret('EMAIL_HOST')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-password
-EMAIL_HOST_PASSWORD = get_json('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = get_secret('EMAIL_HOST_PASSWORD')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-user
-EMAIL_HOST_USER = get_json('EMAIL_HOST_USER'
+EMAIL_HOST_USER = get_secret('EMAIL_HOST_USER')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-port
 EMAIL_PORT = 587
@@ -62,9 +62,9 @@ DEFAULT_FROM_EMAIL = 'webmaster@durangoproductive.com'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': get_json('DB_NAME'),
-        'USER': get_json('DB_USER'),
-        'PASSWORD': get_JSON('DB_PASSWORD'),
+        'NAME': get_secret('DB_NAME'),
+        'USER': get_secret('DB_USER'),
+        'PASSWORD': get_secret('DB_PASSWORD'),
         'HOST': '',
         'PORT': '',
     }
@@ -84,5 +84,5 @@ CACHES = {
 
 # SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = get_json('SECRET_KEY')
+SECRET_KEY = get_secret('SECRET_KEY')
 # END SECRET CONFIGURATION
