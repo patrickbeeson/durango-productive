@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from contact_form.views import ContactFormView
+from views import ContactFormView
 
 """
 URL patterns for the contact form

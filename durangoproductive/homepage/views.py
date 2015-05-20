@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from django.core.exceptions import ObjectDoesNotExist
 
-from portfolio.models import Project, Asset
+from portfolio.models import Project
 
 
 class HomePageView(TemplateView):

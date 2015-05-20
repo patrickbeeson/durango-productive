@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from homepage import views
+from .views import HomePageView
 
 """
 URL patterns for the homepage
@@ -8,5 +8,5 @@ URL patterns for the homepage
 """
 
 urlpatterns = [
-    url(r'^$', views.HomePageView.as_view(), name='home'),
+    url(r'^$', HomePageView.as_view(), name='home'),
 ]

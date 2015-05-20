@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from portfolio import views
+from .views import ProjectDetail, ProjectList
 
 """
 URL patterns for portfolio projects
@@ -9,10 +9,10 @@ URL patterns for portfolio projects
 
 urlpatterns = [
     url(r'^$',
-        views.ProjectList.as_view(),
+        ProjectList.as_view(),
         name='portfolio_project_list'),
 
     url(r'^(?P<slug>[-\w]+)/$',
-        views.ProjectDetail.as_view(),
+        ProjectDetail.as_view(),
         name='portfolio_project_detail')
 ]
