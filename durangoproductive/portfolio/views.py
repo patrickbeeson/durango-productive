@@ -1,6 +1,6 @@
 from django.views.generic import ListView, DetailView
 
-from .models import Project
+from portfolio.models import Project
 
 
 class BaseProjectMixin(object):

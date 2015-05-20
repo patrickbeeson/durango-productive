@@ -8,6 +8,7 @@ from django.core.mail import send_mail
 
 from .forms import ContactForm
 
+
 class ContactFormView(FormMessagesMixin, CreateView):
     """
     View to render the ContactForm and handle submissions.
