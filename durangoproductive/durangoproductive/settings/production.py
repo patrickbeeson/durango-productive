@@ -38,7 +38,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = get_secret('EMAIL_HOST')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-password
-EMAIL_HOST_PASSWORD = get_secret('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = '151Piedmont'  # Explicit for now
+# EMAIL_HOST_PASSWORD = get_secret('EMAIL_HOST_PASSWORD')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-host-user
 EMAIL_HOST_USER = get_secret('EMAIL_HOST_USER')

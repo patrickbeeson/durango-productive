@@ -1,4 +1,3 @@
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from portfolio import views
@@ -8,8 +7,7 @@ URL patterns for portfolio projects
 
 """
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$',
         views.ProjectList.as_view(),
         name='portfolio_project_list'),
@@ -17,4 +15,4 @@ urlpatterns = patterns(
     url(r'^(?P<slug>[-\w]+)/$',
         views.ProjectDetail.as_view(),
         name='portfolio_project_detail')
-)
+]
