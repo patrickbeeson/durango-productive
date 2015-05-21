@@ -14,7 +14,7 @@ class ContactFormView(FormMessagesMixin, CreateView):
     View to render the ContactForm and handle submissions.
     """
     form_class = ContactForm
-    template_name = 'contact_form/contact_form.html'
+    template_name = "contact_form/contact_form.html"
     form_invalid_message = _(u'There was an error with your submission.')
     form_valid_message = _(u'Thank you for contacting Durango Productive. '
                            'We\'ll be in touch soon!')

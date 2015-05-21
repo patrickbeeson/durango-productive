@@ -7,21 +7,21 @@
 
 {% block content %}
 <section id="my_work" class="content">
-	<header>
-		<h2 class="lead_head">My Work</h2>
-	</header>
+    <header>
+        <h2 class="lead_head">My Work</h2>
+    </header>
 
-	<p class="lead">My first job with every project is listen to the business owner I'm serving, and to re-tell their story in the projects I create with them.</p>
-	<p>Our work together tends to reflect the client's design aesthetic with my own sense of balance and simplicity.</p>
-	<ul class="project_list">
-	{% for project in project_list %}
-		<li class="project">
-			<a href="{% url 'portfolio_project_detail' project.slug %}">
-				<img src="{{ MEDIA_URL }}{{ project.lead_art }}" alt="More about {{ project.client_name }}">
-				{{ project.client_name }}
-			</a>
-		</li>
-	{% endfor %}
-	</ul>
+    <p class="lead">My first job with every project is listen to the business owner I'm serving, and to re-tell their story in the projects I create with them.</p>
+    <p>Our work together tends to reflect the client's design aesthetic with my own sense of balance and simplicity.</p>
+    <ul class="project_list">
+    {% for project in project_list %}
+        <li class="project">
+            <a href="{% url 'portfolio_project_detail' project.slug %}">
+                <img src="{{ MEDIA_URL }}{{ project.lead_art }}" alt="More about {{ project.client_name }}">
+                {{ project.client_name }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
 </section>
 {% endblock %}
