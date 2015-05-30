@@ -224,7 +224,8 @@ LOCAL_APPS = (
     'crispy_forms',
     'sorl.thumbnail',
     'homepage',
-    'contact_form',
+    'contact_form.apps.ContactFormConfig',
+    'django_extensions',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

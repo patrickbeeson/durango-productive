@@ -24,7 +24,7 @@ class ContactFormTestCase(TestCase):
                 'name': 'Patrick Beeson',
                 'email': 'patrickbeeson@gmail.com',
                 'message': 'My test message',
-                'honeypot': 'I can haz spambot?'
+                'url': 'I can haz spambot?'
             },
             instance=self.communication
         )

@@ -612,6 +612,10 @@ body {
             font-family: $font_montserrat;
             font-weight: 700;
         }
+        // Honeypot
+        #id_url, label[for='id_url'] {
+            display: none;
+        }
 
         button {
             @include button($dark-gray);

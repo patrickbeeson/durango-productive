@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import strip_tags, escape
 
 
 class Communication(models.Model):
@@ -21,3 +22,10 @@ class Communication(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        """
+        On save, sanitize the message field.
+        """
+        self.message = escape(strip_tags(self.message))
+        super(Communication, self).save(*args, **kwargs)
