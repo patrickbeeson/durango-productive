@@ -25,7 +25,6 @@ class ContactFormView(FormMessagesMixin, CreateView):
 
     def form_valid(self, form):
         "Send an email to site managers if the form is valid"
-        form.clean_honeypot()
         message = "{name} / {email} said: ".format(
             name=form.cleaned_data.get('name'),
             email=form.cleaned_data.get('email'))

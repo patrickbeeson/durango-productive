@@ -9,13 +9,19 @@ class ContactForm(ModelForm):
     """
     url = CharField(required=False)
 
-    def clean_honeypot(self):
-        """Check that nothing's been entered into the fake-url field/honeypot.
+    def clean(self):
         """
+        Override the clean method to check for spam in honeypot.
+        """
+        super(ContactForm, self).clean()
         value = self.cleaned_data["url"]
         if value:
-            raise ValidationError(self.fields["url"].label)
-        return value
+            raise ValidationError(
+                'Suspected spam in honeypot: {}'.format(value),
+                code='suspected spam',
+                params={'value': value}
+            )
+        return self.cleaned_data
 
     class Meta:
         model = Communication
