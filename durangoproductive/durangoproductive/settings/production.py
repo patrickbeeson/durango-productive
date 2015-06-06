@@ -68,6 +68,7 @@ DATABASES = {
         'PASSWORD': get_secret('DB_PASSWORD'),
         'HOST': '',
         'PORT': '',
+        'ATOMIC_REQUESTS': True,
     }
 }
 # END DATABASE CONFIGURATION
