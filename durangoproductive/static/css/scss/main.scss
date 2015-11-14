@@ -28,7 +28,7 @@
 
 // Lightbox
 
-@import '../css/lightbox.css';
+// @import '/css/lightbox.css';
 
 // Homepage
 
@@ -36,7 +36,7 @@ body {
     background-color: $footer_sand;
 
     @include media($medium-screen) {
-        @include background-image(url("../images/header_nav_bg.png"), url("../images/content_bg_no_footer.png"));
+        @include background-image(url("../../images/header_nav_bg.png"), url("../../images/content_bg_no_footer.png"));
         background-position: center top, center;
         background-repeat: repeat-x, repeat;
     }
@@ -111,14 +111,14 @@ body {
 
     header#branding {
         height: 184px;
-        @include retina-image("../images/header_logo", 307px 184px);
+        @include retina-image("../../images/header_logo", 307px 184px);
         background-position: center center;
         background-repeat: no-repeat;
 
         @include media($medium-screen) {
             @include span-columns(10);
             @include shift(1);
-            @include retina-image("../images/header_logo", 307px 184px);
+            @include retina-image("../../images/header_logo", 307px 184px);
             background-position: 0px 0px;
             height: 184px;
             position: absolute;
@@ -343,14 +343,14 @@ body {
             }
 
             .footer_contact {
-                @include retina-image("../images/footer_hex", 44px 51px);
+                @include retina-image("../../images/footer_hex", 44px 51px);
                 background-repeat: no-repeat;
                 background-position: 50% 0px;
                 padding-top: 100px;
                 margin-top: 0px;
 
                 @include media($medium-screen) {
-                    @include retina-image("../images/cropped_hex", 126px 103px);
+                    @include retina-image("../../images/cropped_hex", 126px 103px);
                     background-repeat: no-repeat;
                     background-position: right top;
                     padding-top: 90px;
@@ -439,6 +439,11 @@ body {
 
                 @include media($medium-screen) {
                     display: block;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
                 }
 
             }
@@ -572,6 +577,9 @@ body {
             img {
                 margin-top: 10px;
                 width: 100%;
+                object-fit: cover;
+                width: 335px;
+                height: 335px;
             }
         }
     }

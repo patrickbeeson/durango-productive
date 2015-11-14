@@ -41,6 +41,10 @@ Desktop.ini
 
 # SASS cache
 .sass-cache
+durangoproductive/static/CACHE
+
+# Node
+node_modules
 
 # Project specific
 durangoproductive/media

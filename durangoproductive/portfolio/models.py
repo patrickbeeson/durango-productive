@@ -1,8 +1,10 @@
-from django.db import models
-
 from markdown import markdown
 from typogrify.filters import typogrify
 from sorl.thumbnail import ImageField
+
+
+from django.db import models
+from django.core.exceptions import ObjectDoesNotExist
 
 
 def markup(text):
@@ -39,10 +41,15 @@ class FeaturedProjectManager(models.Manager):
     the completion date.
     """
     def get_queryset(self):
-        return super(
-            FeaturedProjectManager, self).get_queryset().filter(
-            is_featured=True, is_public=True).latest(
-            'completion_date')
+        try:
+            return super(
+                FeaturedProjectManager, self).get_queryset().filter(
+                is_featured=True, is_public=True).latest(
+                'completion_date')
+        except ObjectDoesNotExist:
+            return super(
+                FeaturedProjectManager, self).get_queryset().filter(
+                is_public=True).latest('completion_date')
 
 
 class Project(models.Model):
@@ -95,10 +102,13 @@ class Project(models.Model):
 
 
 class Asset(models.Model):
+    """
+    The asset objects are work performed for a project.
+    """
     description = models.CharField(
         max_length=250,
         help_text='Briefly describe the asset. Limited to 250 characters.')
-    project = models.ForeignKey(Project)
+    project = models.ForeignKey(Project, related_name='assets')
     art = models.ImageField(
         upload_to='images/portfolio/assets',
         help_text='The art to associated with this project asset.')
@@ -113,8 +123,7 @@ class Asset(models.Model):
 
 class Category(models.Model):
     """
-    A category for managing project types.
-
+    A category object organizes projects.
     """
     title = models.CharField(
         max_length=250,

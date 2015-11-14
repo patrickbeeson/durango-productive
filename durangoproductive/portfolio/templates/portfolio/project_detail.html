@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
-{% load thumbnail %}
+{% load static %}
+{% load compress %}
 
 {% block title %}Work for {{ project.client_name }} by Durango Productive{% endblock title %}
 
@@ -8,25 +8,80 @@
 
 {% block content %}
 <section id="project" class="content">
-	<header>
-		<h2 class="lead_head">{{ project.client_name }}</h2>
-	</header>
-
-	{{ project.description_html|safe }}
-
-	{% if project.asset_set.count %}
-	<ul class="project_asset_list">
-	{% for asset in project.asset_set.all %}
-		<li class="asset">
-			<span class="asset_description">{{ asset.project.client_name }}: {{ asset.description }}</span>
-			<a href="{{ MEDIA_URL }}{{ asset.art }}" data-title="{{ asset.project.client_name }}: {{ asset.description }}" data-lightbox="roadtrip">
-				{% thumbnail asset.art "335x335" crop="center" format='PNG' as asset_art %}
-				<img src="{{ asset_art.url }}" alt="{{ asset.description }}">
-				{% endthumbnail %}
-			</a>
-		</li>
-	{% endfor %}
-	</ul>
-	{% endif %}
+    <div id="project_indiv"></div>
 </section>
 {% endblock %}
+
+{% block extra_js %}
+{% compress js %}
+<script type="text/jsx">
+var ProjectContainer = React.createClass({
+    loadProjectsFromServer: function() {
+    $.ajax({
+        url: this.props.url,
+        dataType: 'json',
+        cache: false,
+        success: function(data) {
+            this.setState({data: data});
+        }.bind(this),
+        error: function(xhr, status, err) {
+            console.error(this.props.url, status, err.toString());
+        }.bind(this)
+        });
+    },
+    getInitialState: function () {
+        return {data: {assets: []}};
+    },
+    componentDidMount: function() {
+        this.loadProjectsFromServer();
+        setInterval(this.loadProjectsFromServer, this.props.pollInterval);
+    },
+    render: function () {
+        return (
+            <Project data={ this.state.data } />
+        );
+    }
+});
+var Project = React.createClass({
+    rawMarkup: function() {
+        var rawMarkup = this.props.data.description_html;
+        return { __html: rawMarkup };
+    },
+    render: function() {
+        var assetNodes = this.props.data.assets.map(function (asset) {
+            return (
+                <Asset key={ asset.pk } art={ asset.art } project={ asset.project } description={ asset.description } />
+            );
+        });
+        return (
+            <div>
+                <header>
+                    <h2 className="lead_head">{ this.props.data.client_name }</h2>
+                </header>
+                <span dangerouslySetInnerHTML={ this.rawMarkup() } />
+                <ul className="project_asset_list">
+                    { assetNodes }
+                </ul>
+            </div>
+        );
+    }
+});
+var Asset = React.createClass({
+    render: function() {
+        return (
+            <li className="asset">
+                <span className="asset_description">{ this.props.project }{ this.props.description }</span>
+                <a href={ this.props.art } data-title={ this.props.project } data-lightbox="roadtrip">
+                    <img src={ this.props.art } alt={ this.props.description } />
+                </a>
+            </li>
+        )
+    }
+});
+ReactDOM.render(
+    <ProjectContainer url="{% url 'portfolio_project_detail_api' slug=slug %}" pollInterval={2000} />,
+    document.getElementById('project_indiv')
+);
+</script>
+{% endcompress %}
+{% endblock extra_js %}

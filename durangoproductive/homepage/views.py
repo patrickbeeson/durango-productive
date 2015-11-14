@@ -10,7 +10,7 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomePageView, self).get_context_data(**kwargs)
         try:
-            context['featured_project'] = Project.featured.all()
+            context['slug'] = Project.featured.all().slug
         except ObjectDoesNotExist:
-            context['featured_project'] = None
+            context['slug'] = None
         return context

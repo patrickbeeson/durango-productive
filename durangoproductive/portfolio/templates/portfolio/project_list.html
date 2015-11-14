@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load compress static %}
 
 {% block title %}Work by Durango Productive{% endblock title %}
 
@@ -13,15 +13,70 @@
 
     <p class="lead">My first job with every project is listen to the business owner I'm serving, and to re-tell their story in the projects I create with them.</p>
     <p>Our work together tends to reflect the client's design aesthetic with my own sense of balance and simplicity.</p>
-    <ul class="project_list">
-    {% for project in project_list %}
-        <li class="project">
-            <a href="{% url 'portfolio_project_detail' project.slug %}">
-                <img src="{{ MEDIA_URL }}{{ project.lead_art }}" alt="More about {{ project.client_name }}">
-                {{ project.client_name }}
-            </a>
-        </li>
-    {% endfor %}
-    </ul>
+    <div id="projects"></div>
 </section>
 {% endblock %}
+
+{% block extra_js %}
+{% compress js %}
+<script type="text/jsx">
+var ProjectListContainer = React.createClass({
+    loadProjectsFromServer: function() {
+    $.ajax({
+        url: this.props.url,
+        dataType: 'json',
+        cache: false,
+        success: function(data) {
+            this.setState({data: data});
+        }.bind(this),
+        error: function(xhr, status, err) {
+            console.error(this.props.url, status, err.toString());
+        }.bind(this)
+        });
+    },
+    getInitialState: function () {
+        return {data: []};
+    },
+    componentDidMount: function() {
+        this.loadProjectsFromServer();
+        setInterval(this.loadProjectsFromServer, this.props.pollInterval);
+    },
+    render: function () {
+        return (
+            <ProjectList data={this.state.data} />
+        );
+    }
+});
+var ProjectList = React.createClass({
+    render: function() {
+        var projectNodes = this.props.data.map(function (project) {
+            return (
+                <Project key={ project.pk } client_name={ project.client_name } lead_art={ project.lead_art } project_detail={ project.project_detail.self } />
+            );
+        });
+        return (
+            <ul className="project_list">
+                {projectNodes}
+            </ul>
+        );
+    }
+});
+var Project = React.createClass({
+    render: function() {
+        return (
+            <li className="project">
+                <a href={ this.props.project_detail }>
+                    <img src={ this.props.lead_art } alt="More about this project" />
+                    { this.props.client_name }
+                </a>
+            </li>
+        )
+    }
+});
+ReactDOM.render(
+    <ProjectListContainer url="{% url 'portfolio_project_list_api' %}" pollInterval={2000} />,
+    document.getElementById('projects')
+);
+</script>
+{% endcompress %}
+{% endblock extra_js %}

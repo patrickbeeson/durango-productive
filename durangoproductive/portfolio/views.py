@@ -1,15 +1,34 @@
-from django.views.generic import ListView, DetailView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 
-from portfolio.models import Project
+from django.views.generic import TemplateView
 
-
-class BaseProjectMixin(object):
-    model = Project
-
-
-class ProjectList(BaseProjectMixin, ListView):
-    pass
+from .serializers import ProjectSerializer
+from .models import Project
 
 
-class ProjectDetail(BaseProjectMixin, DetailView):
-    pass
+class ProjectListAPIView(ListAPIView):
+    queryset = Project.public.all()
+    serializer_class = ProjectSerializer
+    lookup_field = 'slug'
+
+
+class ProjectDetailFeaturedAPIView(RetrieveAPIView):
+    queryset = Project.featured.all()
+    serializer_class = ProjectSerializer
+    lookup_field = 'slug'
+
+
+class ProjectDetailAPIView(RetrieveAPIView):
+    queryset = Project.public.all()
+    serializer_class = ProjectSerializer
+    lookup_field = 'slug'
+
+
+class ProjectDetailView(TemplateView):
+
+    template_name = 'portfolio/project_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectDetailView, self).get_context_data(**kwargs)
+        context['slug'] = self.kwargs['slug']
+        return context

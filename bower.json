@@ -1,0 +1,20 @@
+{
+  "name": "durangoproductive",
+  "version": "1.0.0",
+  "homepage": "https://github.com/patrickbeeson/durango-productive",
+  "authors": [
+    "Patrick Beeson <patrickbeeson@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "react": "~0.14.2"
+  }
+}

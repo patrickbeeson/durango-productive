@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
-{% load thumbnail %}
+{% load static %}
+{% load compress %}
 
 {% block page_id %}home{% endblock page_id %}
 
 {% block content %}
 <section id="introduction" class="content">
-	<p class="lead_head">Thank You.</p>
-	<p class="lead">You read something about me. Or met me. Or you saw the design &amp; branding work I do.</p>
-	<p class="lead_follow">And then you came here.</p>
-	<p>I'm looking forward to talking with you about what you envision for your business. Collaborating with clients is where I draw my creative energy.</p>
-	<p>Wanna go on that ride with me? <a href="{% url 'contact_form' %}" class="intro_link">Get in touch</a>.</p>
-	<p>Wanna see more of <a href="{% url 'portfolio_project_list' %}" class="intro_link">what I do</a> before you decide? I don't blame you. I like research, too.</p>
+    <p class="lead_head">Thank You.</p>
+    <p class="lead">You read something about me. Or met me. Or you saw the design &amp; branding work I do.</p>
+    <p class="lead_follow">And then you came here.</p>
+    <p>I'm looking forward to talking with you about what you envision for your business. Collaborating with clients is where I draw my creative energy.</p>
+    <p>Wanna go on that ride with me? <a href="{% url 'contact_form' %}" class="intro_link">Get in touch</a>.</p>
+    <p>Wanna see more of <a href="{% url 'portfolio_project_list' %}" class="intro_link">what I do</a> before you decide? I don't blame you. I like research, too.</p>
 </section>
 {% endblock content %}
 
@@ -20,13 +20,51 @@
 {% endblock footer_about %}
 
 {% block footer_past_projects %}
-<li class="footer_past_projects">
-	<a href="{% url 'portfolio_project_list' %}">
-		{% thumbnail featured_project.lead_art "254x188" crop="center" as featured_project_art %}
-    	<img src="{{ featured_project_art.url }}" alt="{{ featured_project.client_name }}">
-    	{% endthumbnail %}
-        Past Projects
-    </a>
-</li>
+<div id="project_featured" data-url="{% url 'portfolio_project_detail_featured_api' slug=slug %}"></div>
 {% endblock footer_past_projects %}
 
+{% block extra_js %}
+{% compress js %}
+<script type="text/jsx">
+var ProjectContainer = React.createClass({
+    getInitialState: function () {
+        return {data: {assets: []}};
+    },
+    componentDidMount: function() {
+    $.ajax({
+        url: this.props.url,
+        dataType: 'json',
+        cache: false,
+        success: function(data) {
+            this.setState({data: data});
+        }.bind(this),
+        error: function(xhr, status, err) {
+            console.error(this.props.url, status, err.toString());
+        }.bind(this)
+        });
+    },
+    render: function () {
+        return (
+            <Project data={ this.state.data } />
+        );
+    }
+});
+var Project = React.createClass({
+    render: function() {
+        return (
+            <li className="footer_past_projects">
+                <a href="{% url 'portfolio_project_list' %}">
+                    <img src={ this.props.data.lead_art } alt={ this.props.data.client_name } />
+                    Past Projects
+                </a>
+            </li>
+        );
+    }
+});
+ReactDOM.render(
+    <ProjectContainer url="{% url 'portfolio_project_detail_featured_api' slug=slug %}" />,
+    document.getElementById('project_featured')
+);
+</script>
+{% endcompress %}
+{% endblock extra_js %}

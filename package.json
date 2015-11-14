@@ -1,0 +1,11 @@
+{
+  "name": "durangoproductive",
+  "description": "",
+  "repository": "",
+  "license": "",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "react": "^0.14.2"
+  }
+}

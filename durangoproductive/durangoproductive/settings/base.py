@@ -125,9 +125,9 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 )
 #  END STATIC FILE CONFIGURATION
-
 
 #  SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
@@ -225,12 +225,22 @@ LOCAL_APPS = (
     'homepage',
     'contact_form.apps.ContactFormConfig',
     'django_extensions',
+    'rest_framework',
+    'compressor',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
 
 #  END APP CONFIGURATION
+
+# DJANGO_COMPRESSOR CONFIGURATION
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+    ('text/jsx', 'cat {infile} | jsx > {outfile}'),
+)
+COMPRESS_ENABLED = True
+COMPRESS_ROOT = normpath(join(SITE_ROOT, 'static'))
 
 
 #  LOGGING CONFIGURATION
