@@ -8,7 +8,7 @@
 
 {% block content %}
 <section id="project" class="content">
-    <div id="project_indiv"></div>
+    <div id="project_indiv" data-url="{% url 'portfolio_project_detail_api' slug=slug %}"></div>
 </section>
 {% endblock %}
 
@@ -34,7 +34,6 @@ var ProjectContainer = React.createClass({
     },
     componentDidMount: function() {
         this.loadProjectsFromServer();
-        setInterval(this.loadProjectsFromServer, this.props.pollInterval);
     },
     render: function () {
         return (
@@ -78,8 +77,9 @@ var Asset = React.createClass({
         )
     }
 });
+var projectDetailUrl = $('#project_indiv').data('url');
 ReactDOM.render(
-    <ProjectContainer url="{% url 'portfolio_project_detail_api' slug=slug %}" pollInterval={2000} />,
+    <ProjectContainer url={ projectDetailUrl } />,
     document.getElementById('project_indiv')
 );
 </script>

@@ -53,7 +53,7 @@ var Project = React.createClass({
     render: function() {
         return (
             <li className="footer_past_projects">
-                <a href="{% url 'portfolio_project_list' %}">
+                <a href="/work/">
                     <img src={ this.props.data.lead_art } alt={ this.props.data.client_name } />
                     Past Projects
                 </a>
@@ -61,8 +61,9 @@ var Project = React.createClass({
         );
     }
 });
+var featuredContainerUrl = $('#project_featured').data('url');
 ReactDOM.render(
-    <ProjectContainer url="{% url 'portfolio_project_detail_featured_api' slug=slug %}" />,
+    <ProjectContainer url={ featuredContainerUrl } />,
     document.getElementById('project_featured')
 );
 </script>

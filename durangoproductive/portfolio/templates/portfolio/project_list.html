@@ -14,7 +14,7 @@
 
     <p class="lead">My first job with every project is listen to the business owner I'm serving, and to re-tell their story in the projects I create with them.</p>
     <p>Our work together tends to reflect the client's design aesthetic with my own sense of balance and simplicity.</p>
-    <div id="projects"></div>
+    <div id="projects" data-url="{% url 'portfolio_project_list_api' %}"></div>
 </section>
 {% endblock %}
 
@@ -40,7 +40,6 @@ var ProjectListContainer = React.createClass({
     },
     componentDidMount: function() {
         this.loadProjectsFromServer();
-        setInterval(this.loadProjectsFromServer, this.props.pollInterval);
     },
     render: function () {
         return (
@@ -74,8 +73,9 @@ var Project = React.createClass({
         )
     }
 });
+var projectsUrl = $('#projects').data('url');
 ReactDOM.render(
-    <ProjectListContainer url="{% url 'portfolio_project_list_api' %}" pollInterval={2000} />,
+    <ProjectListContainer url={ projectsUrl } />,
     document.getElementById('projects')
 );
 </script>
