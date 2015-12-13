@@ -3,8 +3,6 @@
 
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
-import json
-
 
 #  PATH CONFIGURATION
 # Absolute filesystem path to the Django project directory:
@@ -20,24 +18,6 @@ SITE_NAME = basename(DJANGO_ROOT)
 # name in our dotted import paths:
 path.append(DJANGO_ROOT)
 #  END PATH CONFIGURATION
-
-# Normally you should not import ANYTHING from Django directly
-# into your settings, but ImproperlyConfigured is an exception.
-from django.core.exceptions import ImproperlyConfigured
-
-# SECRETS CONFIGURATION
-secrets_path = normpath(join(SITE_ROOT, 'secrets.json'))
-
-with open(secrets_path) as f:
-    secrets = json.loads(f.read())
-
-
-def get_secret(setting, secrets=secrets):
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = "Set the {} environment variable".format(setting)
-        raise ImproperlyConfigured(error_msg)
 
 #  DEBUG CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
@@ -130,13 +110,6 @@ STATICFILES_FINDERS = (
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 #  END STATIC FILE CONFIGURATION
-
-#  SECRET CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-# Note: This key should only be used for development and testing.
-SECRET_KEY = get_secret('SECRET_KEY')
-#  END SECRET CONFIGURATION
-
 
 #  SITE CONFIGURATION
 # Hosts/domain names that are valid for this site
