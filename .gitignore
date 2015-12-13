@@ -51,3 +51,6 @@ node_modules
 # Project specific
 durangoproductive/media
 secrets.json
+
+# Deployed static files
+staticfiles
