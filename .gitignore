@@ -41,7 +41,6 @@ Desktop.ini
 
 # SASS cache
 .sass-cache
-durangoproductive/static/CACHE
 
 # DB backups
 *.bak
