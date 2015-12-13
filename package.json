@@ -1,11 +1,12 @@
 {
   "name": "durangoproductive",
   "description": "",
-  "repository": "",
-  "license": "",
+  "repository": "durango-productive",
+  "license": "MIT",
   "version": "1.0.0",
-  "dependencies": {},
-  "devDependencies": {
-    "react": "^0.14.2"
+  "dependencies": {
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-tools": "^0.13.3"
   }
 }

@@ -43,12 +43,12 @@ Desktop.ini
 .sass-cache
 durangoproductive/static/CACHE
 
+# DB backups
+*.bak
+
 # Node
 node_modules
 
 # Project specific
 durangoproductive/media
-debug_toolbar
-admin
-durangoproductive/durangoproductive/settings/local.py
 secrets.json
