@@ -220,7 +220,7 @@ COMPRESS_PRECOMPILERS = (
 )
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
-COMPRESS_ROOT = normpath(join(SITE_ROOT, 'static'))
+COMPRESS_ROOT = STATIC_ROOT
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
