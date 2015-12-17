@@ -1,4 +1,4 @@
-https://travis-ci.org/patrickbeeson/durango-productive.svg?branch=master
+![Travis CI Build Status](https://travis-ci.org/patrickbeeson/durango-productive.svg?branch=master)
 
 # Durango Productive Website README
 
