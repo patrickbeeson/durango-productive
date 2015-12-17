@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from rest_framework.reverse import reverse
+from rest_framework.reverse import reverse_lazy
 
-from .models import Project, Asset, Category
+from .models import Project, Asset
 
 
 class AssetSerializer(serializers.ModelSerializer):
@@ -39,7 +39,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         """Returns URI for object into the project_detail field"""
         request = self.context['request']
         return {
-            'self': reverse(
+            'self': reverse_lazy(
                 'portfolio_project_detail',
                 kwargs={'slug': obj.slug},
                 request=request,

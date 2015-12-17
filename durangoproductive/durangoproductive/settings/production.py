@@ -72,6 +72,10 @@ DATABASES = {
 }
 # END DATABASE CONFIGURATION
 
+# COMPRESSION CONFIGURATION
+COMPRESS_OFFLINE = True
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches

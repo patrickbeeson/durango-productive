@@ -52,6 +52,8 @@ DATABASES = {
 }
 # END DATABASE CONFIGURATION
 
+# COMPRESSION CONFIGURATION
+COMPRESS_OFFLINE = False
 
 # CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches

@@ -7,7 +7,7 @@ admin.autodiscover()
 from .views import RobotsView
 
 urlpatterns = [
-    url(r'^$', include('homepage.urls')),
+    url(r'^', include('homepage.urls')),
     url(r'^robots\.txt$', RobotsView.as_view()),
     url(r'^work/', include('portfolio.urls')),
     url(r'^contact/', include('contact_form.urls')),

@@ -49,22 +49,6 @@ LIST_OF_EMAIL_RECIPIENTS = [
 MANAGERS = ADMINS
 #  END MANAGER CONFIGURATION
 
-
-#  DATABASE CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-    }
-}
-#  END DATABASE CONFIGURATION
-
-
 #  GENERAL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
 TIME_ZONE = 'America/Los_Angeles'
@@ -219,10 +203,7 @@ COMPRESS_PRECOMPILERS = (
     ('text/jsx', 'cat {infile} | jsx > {outfile}'),
 )
 COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
 COMPRESS_ROOT = STATIC_ROOT
-
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 #  LOGGING CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
