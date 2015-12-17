@@ -14,5 +14,4 @@ install:
 
 # command to run tests, e.g. python setup.py test
 script:
-  python durangoproductive/manage.py test homepage
-  python durangoproductive/manage.py test portfolio
+  cd durangoproductive;python manage.py test --settings=durangoproductive.settings.test
