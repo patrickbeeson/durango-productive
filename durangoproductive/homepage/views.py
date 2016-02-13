@@ -8,9 +8,10 @@ class HomePageView(TemplateView):
     template_name = "homepage/home.html"
 
     def get_context_data(self, **kwargs):
-        context = super(HomePageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
-            context['slug'] = Project.featured.all().slug
+            context['slug'] = Project.public.filter(
+                is_featured=True).latest('completion_date').slug
         except ObjectDoesNotExist:
             context['slug'] = None
         return context

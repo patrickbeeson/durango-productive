@@ -12,11 +12,11 @@ class ContactFormAPITests(TestCase):
     def test_communication_create_endpoint(self):
         "Ensure we can issue a successful POST to API endpoint."
         data = {
-            'name': 'Patrick Beeson',
-            'email': 'patrickbeeson@gmail.com',
-            'message': 'Some message, eh?'
+            'formData[name]': 'Patrick Beeson',
+            'formData[email]': 'patrickbeeson@gmail.com',
+            'formData[message]': 'Some message, eh?'
         }
         response = self.post('communication_create',
                              data=data,
                              extra={'HTTP_X_REQUESTED_WITH': 'XMLHttpRequest'})
-        self.response_200(response)
+        self.response_201(response)

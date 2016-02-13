@@ -13,7 +13,7 @@ class ProjectListAPIView(ListAPIView):
 
 
 class ProjectDetailFeaturedAPIView(RetrieveAPIView):
-    queryset = Project.featured.all()
+    queryset = Project.public.filter(is_featured=True)
     serializer_class = ProjectSerializer
     lookup_field = 'slug'
 

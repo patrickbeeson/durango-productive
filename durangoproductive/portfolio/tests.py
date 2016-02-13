@@ -70,16 +70,10 @@ class ProjectManagerTests(TestCase):
 
     def setUp(self):
         self.project = ProjectFactory.create()
-        self.featured_project = ProjectFactory.create(
-            is_featured=True,
-        )
         self.not_public_project = ProjectFactory.create(is_public=False)
 
     def test_public_project_manager_returns_correctly(self):
         self.assertTrue(self.not_public_project not in Project.public.all())
-
-    def test_featured_project_manager_returns_correctly(self):
-        self.assertNotEqual(self.project, Project.featured.all())
 
     def tearDown(self):
         [p.delete() for p in Project.objects.all()]

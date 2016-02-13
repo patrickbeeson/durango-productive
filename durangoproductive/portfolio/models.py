@@ -2,9 +2,7 @@ from markdown import markdown
 from typogrify.filters import typogrify
 from sorl.thumbnail import ImageField
 
-
 from django.db import models
-from django.core.exceptions import ObjectDoesNotExist
 
 
 def markup(text):
@@ -32,24 +30,6 @@ class PublicProjectManager(models.Manager):
     def get_queryset(self):
         return super(PublicProjectManager, self).get_queryset().filter(
             is_public=True)
-
-
-class FeaturedProjectManager(models.Manager):
-    """
-    Manager to fetch only featured projects.
-    Since we only need one featured project, we'll grab the latest using
-    the completion date.
-    """
-    def get_queryset(self):
-        try:
-            return super(
-                FeaturedProjectManager, self).get_queryset().filter(
-                is_featured=True, is_public=True).latest(
-                'completion_date')
-        except ObjectDoesNotExist:
-            return super(
-                FeaturedProjectManager, self).get_queryset().filter(
-                is_public=True).latest('completion_date')
 
 
 class Project(models.Model):
@@ -82,7 +62,6 @@ class Project(models.Model):
     categories = models.ManyToManyField('Category')
 
     objects = models.Manager()
-    featured = FeaturedProjectManager()
     public = PublicProjectManager()
 
     class Meta:
