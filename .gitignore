@@ -54,3 +54,4 @@ secrets.json
 
 # Deployed static files
 staticfiles
+durangoproductive/static/bower_components
