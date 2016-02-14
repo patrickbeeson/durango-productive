@@ -9,7 +9,7 @@ env:
 install:
   - pip install -r requirements/base.txt
   - pip install -r requirements/test.txt
-  - npm install --production
+  - npm install
   - bower install
 
 # command to run tests, e.g. python setup.py test
