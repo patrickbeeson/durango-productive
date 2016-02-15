@@ -55,3 +55,7 @@ secrets.json
 # Deployed static files
 staticfiles
 durangoproductive/static/bower_components
+
+# Webpack
+webpack-stats.json
+durangoproductive/static/bundles

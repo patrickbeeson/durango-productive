@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
-{% load static from staticfiles %}
-{% load compress %}
+{% load render_bundle from webpack_loader %}
 
 {% block page_id %}home{% endblock page_id %}
 
@@ -21,51 +20,5 @@
 
 {% block footer_past_projects %}
 <div id="project_featured" data-url="{% url 'portfolio_project_detail_featured_api' slug=slug %}"></div>
+{% render_bundle 'Home' %}
 {% endblock footer_past_projects %}
-
-{% block extra_js %}
-{% compress js %}
-<script type="text/jsx">
-var ProjectContainer = React.createClass({
-    getInitialState: function () {
-        return {data: {assets: []}};
-    },
-    componentDidMount: function() {
-    $.ajax({
-        url: this.props.url,
-        dataType: 'json',
-        cache: false,
-        success: function(data) {
-            this.setState({data: data});
-        }.bind(this),
-        error: function(xhr, status, err) {
-            console.error(this.props.url, status, err.toString());
-        }.bind(this)
-        });
-    },
-    render: function () {
-        return (
-            <Project data={ this.state.data } />
-        );
-    }
-});
-var Project = React.createClass({
-    render: function() {
-        return (
-            <li className="footer_past_projects">
-                <a href="/work/">
-                    <img src={ this.props.data.lead_art } alt={ this.props.data.client_name } />
-                    Past Projects
-                </a>
-            </li>
-        );
-    }
-});
-var featuredContainerUrl = $('#project_featured').data('url');
-ReactDOM.render(
-    <ProjectContainer url={ featuredContainerUrl } />,
-    document.getElementById('project_featured')
-);
-</script>
-{% endcompress %}
-{% endblock extra_js %}

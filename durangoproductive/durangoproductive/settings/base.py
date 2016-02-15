@@ -97,6 +97,13 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': normpath(join(REPO_ROOT, 'webpack-stats.json')),
+    }
+}
 #  END STATIC FILE CONFIGURATION
 
 #  SITE CONFIGURATION
@@ -190,6 +197,7 @@ LOCAL_APPS = (
     'django_extensions',
     'rest_framework',
     'compressor',
+    'webpack_loader',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
