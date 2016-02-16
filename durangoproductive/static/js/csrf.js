@@ -1,3 +1,5 @@
+import jQuery from 'jquery';
+
 // using jQuery
 function getCookie(name) {
     var cookieValue = null;

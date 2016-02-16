@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import lightbox from 'lightbox2';
 import jQuery from 'jquery';
 
 var ProjectContainer = React.createClass({
